@@ -11,5 +11,5 @@
 4. Klik tombol **Add extra raw material** pada bagian bawah tabel **Products To Consume**
 5. Pilih **Product**.
 6. Isi **Quantity**
-7. Klik tombol **Add** pada bagian atas-kiri pop-up **Addition View**
+7. Klik tombol **Add** pada bagian bawah-kiri pop-up **Addition View**
 8. Ulangi langkah ke-4 untuk setiap bahan baku yang akan ditambahkan.
