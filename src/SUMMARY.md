@@ -9,6 +9,7 @@
         - [Memodifikasi Manufacturing Order](./transaksi/mo/modifikasi.md)
         - [Menghapus Manufacturing Order](./transaksi/mo/menghapus.md)
         - [Konfirmasi Manufacturing Order](./transaksi/mo/konfirmasi.md)
+        - [Membatalkan Manufacturing Order](./transaksi/mo/batal.md)
         - [Menambahkan Raw Material](./transaksi/mo/tambah-rm.md)
         - [Cek Ketersediaan Raw Material](./transaksi/mo/cek-rm.md)
         - [Memulai Manufacturing Order](./transaksi/mo/mulai.md)
