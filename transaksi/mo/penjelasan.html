@@ -1,0 +1,382 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Penjelasan Manufacturing Order - Odoo - Manufactrure</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body class="light">
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../../";
+            var default_theme = "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { } 
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            document.body.className = theme;
+            document.querySelector('html').className = theme + ' js';
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <ol class="chapter"><li class="affix"><a href="../../prakata.html">Pra-Kata</a></li><li class="affix"><a href="../../terminologi.html">Terminologi</a></li><li><a href="../../transaksi.html"><strong aria-hidden="true">1.</strong> Transaksi</a></li><li><ol class="section"><li><a href="../../transaksi/mo.html"><strong aria-hidden="true">1.1.</strong> Manufacturing Order</a></li><li><ol class="section"><li><a href="../../transaksi/mo/penjelasan.html" class="active"><strong aria-hidden="true">1.1.1.</strong> Penjelasan Manufacturing Order</a></li><li><a href="../../transaksi/mo/membuat.html"><strong aria-hidden="true">1.1.2.</strong> Membuat Manufacturing Order</a></li><li><a href="../../transaksi/mo/modifikasi.html"><strong aria-hidden="true">1.1.3.</strong> Memodifikasi Manufacturing Order</a></li><li><a href="../../transaksi/mo/menghapus.html"><strong aria-hidden="true">1.1.4.</strong> Menghapus Manufacturing Order</a></li><li><a href="../../transaksi/mo/konfirmasi.html"><strong aria-hidden="true">1.1.5.</strong> Konfirmasi Manufacturing Order</a></li><li><a href="../../transaksi/mo/batal.html"><strong aria-hidden="true">1.1.6.</strong> Membatalkan Manufacturing Order</a></li><li><a href="../../transaksi/mo/tambah-rm.html"><strong aria-hidden="true">1.1.7.</strong> Menambahkan Raw Material</a></li><li><a href="../../transaksi/mo/cek-rm.html"><strong aria-hidden="true">1.1.8.</strong> Cek Ketersediaan Raw Material</a></li><li><a href="../../transaksi/mo/mulai.html"><strong aria-hidden="true">1.1.9.</strong> Memulai Manufacturing Order</a></li><li><a href="../../transaksi/mo/konsumsi.html"><strong aria-hidden="true">1.1.10.</strong> Konsumsi Raw Material</a></li><li><a href="../../transaksi/mo/produksi.html"><strong aria-hidden="true">1.1.11.</strong> Produksi Finished Goods</a></li><li><a href="../../transaksi/mo/selesai.html"><strong aria-hidden="true">1.1.12.</strong> Menyelesaikan Manufacturing Order</a></li></ol></li></ol></li></ol>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar" class="menu-bar">
+                    <div id="menu-bar-sticky-container">
+                        <div class="left-buttons">
+                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                                <i class="fa fa-paint-brush"></i>
+                            </button>
+                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                                <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            </ul>
+                            
+                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                                <i class="fa fa-search"></i>
+                            </button>
+                            
+                        </div>
+
+                        <h1 class="menu-title">Odoo - Manufactrure</h1> 
+
+                        <div class="right-buttons">
+                            <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                                <i id="print-button" class="fa fa-print"></i>
+                            </a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <a class="header" href="#penjelasan-manufacturing-order" id="penjelasan-manufacturing-order"><h1>Penjelasan Manufacturing Order</h1></a>
+<p>Informasi pada Manufacturing Order dibagi menjadi beberapa area, diantaranya:</p>
+<ul>
+<li><a href="#bagian-header">Header</a></li>
+<li><a href="#tab-consumed-product">Tab Consumend Product</a></li>
+<li><a href="#tab-finished-product">Tab Finished Product</a></li>
+<li><a href="#tab-scheduled-product">Tab Scheduled Product</a></li>
+<li><a href="#tab-extra-info">Tab Extra Information</a></li>
+<li><a href="#tab-workflow-policy">Tab Workflow Policy</a></li>
+<li><a href="#tab-notes">Tab Notes</a></li>
+<li><a href="#tab-byproduct">Tab Byproduct</a></li>
+<li><a href="#tab-applied-cost">Tab Applied Cost</a></li>
+</ul>
+<a class="header" href="#a-namebagian-headerheadera" id="a-namebagian-headerheadera"><h3><a name="bagian-header">HEADER</a></h3></a>
+<p><img src="../../img/mo/header.png" alt="" /></p>
+<a class="header" href="#a-namefield-smart-buttonsmart-buttona" id="a-namefield-smart-buttonsmart-buttona"><h4><a name="field-smart-button">Smart Button</a></h4></a>
+<p><img src="../../img/mo/smart-button.png" alt="" /><br/></p>
+<p>Tombol-tombol yang berfungsi sebagai <em>Shortcut</em> untuk masuk ke dalam menu yang berkaitan dan juga sebagai pemberi informasi mengenai seberapa banyak data, total, dll <br /></p>
+<a class="header" href="#a-namefield-number-manufacturing-ordera" id="a-namefield-number-manufacturing-ordera"><h4><a name="field-number"># Manufacturing Order</a></h4></a>
+<p>Nomor <strong><em>Manufacturing Order</em></strong>.</p>
+<a class="header" href="#a-namefield-typetypea" id="a-namefield-typetypea"><h4><a name="field-type">Type</a></h4></a>
+<p>Mendefinisikan tipe dari <strong><em>Manufacturing Order</em></strong>.</p>
+<a class="header" href="#a-namefield-productproducta" id="a-namefield-productproducta"><h4><a name="field-product">Product</a></h4></a>
+<p>Mendefinisikan produk jadi yang dihasilkan dari proses <strong><em>Manufacturing Order</em></strong>.</p>
+<a class="header" href="#a-nameproduct-qtyproduct-quantitya" id="a-nameproduct-qtyproduct-quantitya"><h4><a name="product-qty">Product Quantity</a></h4></a>
+<p><img src="../../img/mo/product-quantity.png" alt="" /></p>
+<ul>
+<li><a name="field-product-qty"><strong>1.Quantity:</strong> Mendefinisikan jumlah produk jadi yang dihasilkan dari proses <strong><em>Manufacturing Order</em></strong>.</a></li>
+<li><a name="field-product-qty-uom"><strong>2.UoM:</strong> Mendefinisikan satuan produk jadi yang dihasilkan dari proses <strong><em>Manufacturing Order</em></strong>.</a></li>
+</ul>
+<a class="header" href="#a-nameproduct-uos-qtyproduct-uos-quantitya" id="a-nameproduct-uos-qtyproduct-uos-quantitya"><h4><a name="product-uos-qty">Product UoS Quantity</a></h4></a>
+<p><img src="../../img/mo/product-uos-quantity.png" alt="" /></p>
+<ul>
+<li><a name="field-product-uos-qty"><strong>1.Quantity:</strong> Mendefinisikan jumlah produk jadi yang dihasilkan dari proses <strong><em>Manufacturing Order</em></strong>.</a></li>
+<li><a name="field-product-qty-uos"><strong>2.UoS:</strong> Mendefinisikan satuan produk jadi yang dihasilkan dari proses <strong><em>Manufacturing Order</em></strong>.</a></li>
+</ul>
+<a class="header" href="#a-namefield-scheduled-datescheduled-datea" id="a-namefield-scheduled-datescheduled-datea"><h4><a name="field-scheduled-date">Scheduled Date</a></h4></a>
+<p>Menjadwalkan tanggal proses <strong><em>Manufacturing Order</em></strong>.</p>
+<a class="header" href="#a-namefield-bombill-of-materiala" id="a-namefield-bombill-of-materiala"><h4><a name="field-bom">Bill of Material</a></h4></a>
+<p>Mendefinisikan <strong><em>Bill of Material</em></strong>.</p>
+<a class="header" href="#a-namefield-resposibleresponsiblea" id="a-namefield-resposibleresponsiblea"><h4><a name="field-resposible">Responsible</a></h4></a>
+<p>Mendefinisikan user yang bertanggung jawab terkait proses <strong><em>Manufacturing Order</em></strong>.</p>
+<a class="header" href="#a-namefield-soruce-documentsource-documenta" id="a-namefield-soruce-documentsource-documenta"><h4><a name="field-soruce-document">Source Document</a></h4></a>
+<p>Mendefinisikan dokumen terkait proses <strong><em>Manufacturing Order</em></strong>.</p>
+<a class="header" href="#a-namefield-operating-unit-idsoperating-unitsa" id="a-namefield-operating-unit-idsoperating-unitsa"><h4><a name="field-operating-unit-ids">Operating Units</a></h4></a>
+<blockquote>
+<p><strong>Catatan:</strong> Isian ini hanya untuk user yang memiliki group <strong>Multi Operating Unit</strong></p>
+</blockquote>
+<p>Mendefinisikan operating unit terkait proses <strong><em>Manufacturing Order</em></strong>.</p>
+<a class="header" href="#a-namefield-projectprojecta" id="a-namefield-projectprojecta"><h4><a name="field-project">Project</a></h4></a>
+<p>Mendefinisikan projek terkait proses <strong><em>Manufacturing Order</em></strong>.</p>
+<a class="header" href="#a-namefield-raw-materials-locationraw-materials-locationa" id="a-namefield-raw-materials-locationraw-materials-locationa"><h4><a name="field-raw-materials-location">Raw Materials Location</a></h4></a>
+<p>Mendefinisikan lokasi bahan baku yang akan digunakan</p>
+<a class="header" href="#a-namefield-auto-create-procurementauto-create-procurement-groupa" id="a-namefield-auto-create-procurementauto-create-procurement-groupa"><h4><a name="field-auto-create-procurement">Auto Create Procurement Group</a></h4></a>
+<p>#TODO</p>
+<a class="header" href="#a-namefield-raw-material-procurementraw-material-procurement-groupa" id="a-namefield-raw-material-procurementraw-material-procurement-groupa"><h4><a name="field-raw-material-procurement">Raw Material Procurement Group</a></h4></a>
+<p>#TODO</p>
+<a class="header" href="#a-namefield-finished-products-locationfinished-products-locationa" id="a-namefield-finished-products-locationfinished-products-locationa"><h4><a name="field-finished-products-location">Finished Products Location</a></h4></a>
+<p>Mendefinisikan lokasi barang jadi yang akan digunakan</p>
+<a class="header" href="#a-namefield-use-raw-procurementuse-raw-material-procurement-groupa" id="a-namefield-use-raw-procurementuse-raw-material-procurement-groupa"><h4><a name="field-use-raw-procurement">Use Raw Material Procurement Group</a></h4></a>
+<p>#TODO</p>
+<a class="header" href="#a-namefield-finished-procurementfinished-good-procurement-groupa" id="a-namefield-finished-procurementfinished-good-procurement-groupa"><h4><a name="field-finished-procurement">Finished Good Procurement Group</a></h4></a>
+<p>#TODO</p>
+<a class="header" href="#a-nametab-consumed-producttab-consumed-producta" id="a-nametab-consumed-producttab-consumed-producta"><h3><a name="tab-consumed-product">TAB CONSUMED PRODUCT</a></h3></a>
+<p><img src="../../img/mo/tab-consumed-products.png" alt="" /></p>
+<a class="header" href="#a-namefield-product-to-consumedproducts-to-consumea" id="a-namefield-product-to-consumedproducts-to-consumea"><h4><a name="field-product-to-consumed">Products to Consume</a></h4></a>
+<p>Mendefinisikan produk(<strong>bahan baku</strong>) <strong>&quot;yang akan digunakan&quot;</strong> untuk proses membuat produk(<strong>barang jadi</strong>).
+Isian ini dapat diisi otomatis oleh Odoo berdasarkan <a href="./penjelasan.html#field-bom">Bill of Material</a> yang dipilih atau menambahkannya secara manual dengan mengklik tombol <strong><em>Add an item</em></strong></p>
+<a class="header" href="#a-namefield-consumed-productconsumed-productsa" id="a-namefield-consumed-productconsumed-productsa"><h4><a name="field-consumed-product">Consumed Products</a></h4></a>
+<p>Mendefinisikan produk(<strong>bahan baku</strong>) <strong>&quot;yang sudah digunakan&quot;</strong> untuk proses membuat produk(<strong>barang jadi</strong>).</p>
+<a class="header" href="#a-nametab-finished-producttab-finished-producta" id="a-nametab-finished-producttab-finished-producta"><h3><a name="tab-finished-product">TAB FINISHED PRODUCT</a></h3></a>
+<p><img src="../../img/mo/tab-finished-products.png" alt="" /></p>
+<a class="header" href="#a-namefield-manual-production-lotmanual-production-lota" id="a-namefield-manual-production-lotmanual-production-lota"><h4><a name="field-manual-production-lot">Manual Production Lot</a></h4></a>
+<p>#TODO</p>
+<a class="header" href="#a-namefield-concatenate-lots-componentsconcatenate-lots-componentsa" id="a-namefield-concatenate-lots-componentsconcatenate-lots-componentsa"><h4><a name="field-concatenate-lots-components">Concatenate Lots Components</a></h4></a>
+<p>#TODO</p>
+<a class="header" href="#a-namefield-product-to-produceproducts-to-producea" id="a-namefield-product-to-produceproducts-to-producea"><h4><a name="field-product-to-produce">Products to Produce</a></h4></a>
+<p>Mendefinisikan produk(<strong>barang jadi</strong>) <strong>&quot;yang akan diproduksi&quot;</strong>.</p>
+<a class="header" href="#a-namefield-produced-productsproduced-productsa" id="a-namefield-produced-productsproduced-productsa"><h4><a name="field-produced-products">Produced Products</a></h4></a>
+<p>Mendefinisikan produk(<strong>barang jadi</strong>) <strong>&quot;yang sudah diproduksi&quot;</strong>.</p>
+<a class="header" href="#a-nametab-scheduled-producttab-scheduled-producta" id="a-nametab-scheduled-producttab-scheduled-producta"><h3><a name="tab-scheduled-product">TAB SCHEDULED PRODUCT</a></h3></a>
+<p><img src="../../img/mo/tab-scheduled-product.png" alt="" />
+<img src="../../img/mo/tab-scheduled-product-form.png" alt="" /></p>
+<a class="header" href="#a-namefield-scheduled-namenamea" id="a-namefield-scheduled-namenamea"><h4><a name="field-scheduled-name">Name</a></h4></a>
+<p>Mendefinisikan nama <em>Scheduled Goods</em></p>
+<a class="header" href="#a-namefield-scheduled-productproducta" id="a-namefield-scheduled-productproducta"><h4><a name="field-scheduled-product">Product</a></h4></a>
+<p>Mendefinisikan produk <em>Scheduled Goods</em></p>
+<a class="header" href="#a-namefield-scheduled-reserved-lotreserved-lota" id="a-namefield-scheduled-reserved-lotreserved-lota"><h4><a name="field-scheduled-reserved-lot">Reserved Lot</a></h4></a>
+<p>#TODO</p>
+<a class="header" href="#a-namefield-scheduled-product-qtyproduct-quantitya" id="a-namefield-scheduled-product-qtyproduct-quantitya"><h4><a name="field-scheduled-product-qty">Product Quantity</a></h4></a>
+<p>Mendefinisikan kuantitas produk <em>Scheduled Goods</em></p>
+<a class="header" href="#a-namefield-added-post-startupadded-post-startupa" id="a-namefield-added-post-startupadded-post-startupa"><h4><a name="field-added-post-startup">Added Post-startup</a></h4></a>
+<p>#TODO</p>
+<a class="header" href="#a-namefield-scheduled-product-uomproduct-unit-of-measurea" id="a-namefield-scheduled-product-uomproduct-unit-of-measurea"><h4><a name="field-scheduled-product-uom">Product Unit Of Measure</a></h4></a>
+<p>Mendefinisikan satuan produk <em>Scheduled Goods</em></p>
+<a class="header" href="#a-namefield-scheduled-product-uos-qtyproduct-uos-quantitya" id="a-namefield-scheduled-product-uos-qtyproduct-uos-quantitya"><h4><a name="field-scheduled-product-uos-qty">Product UoS Quantity</a></h4></a>
+<p>Mendefinisikan kuantitas produk UoS <em>Scheduled Goods</em></p>
+<a class="header" href="#a-namefield-scheduled-product-uosproduct-uosa" id="a-namefield-scheduled-product-uosproduct-uosa"><h4><a name="field-scheduled-product-uos">Product UoS</a></h4></a>
+<p>Mendefinisikan produk UoS <em>Scheduled Goods</em></p>
+<a class="header" href="#a-nametab-extra-infotab-extra-informationa" id="a-nametab-extra-infotab-extra-informationa"><h3><a name="tab-extra-info">TAB EXTRA INFORMATION</a></h3></a>
+<p><img src="../../img/mo/tab-extra-info.png" alt="" /></p>
+<a class="header" href="#a-namefield-priorityprioritya" id="a-namefield-priorityprioritya"><h4><a name="field-priority">Priority</a></h4></a>
+<p>Mendefinisikan prioritas terkait proses <strong><em>Manufacturing Order</em></strong></p>
+<a class="header" href="#a-namefield-auto-start-datestart-datea" id="a-namefield-auto-start-datestart-datea"><h4><a name="field-auto-start-date">Start Date</a></h4></a>
+<p>Diisi otomatis oleh odoo. Mendefinisikan tanggal dimulainya proses <strong><em>Manufacturing Order</em></strong></p>
+<a class="header" href="#a-namefield-auto-end-dateend-datea" id="a-namefield-auto-end-dateend-datea"><h4><a name="field-auto-end-date">End Date</a></h4></a>
+<p>Diisi otomatis oleh odoo. Mendefinisikan tanggal berakhirnya proses <strong><em>Manufacturing Order</em></strong></p>
+<a class="header" href="#a-namefield-manual-start-datemanual-start-datea" id="a-namefield-manual-start-datemanual-start-datea"><h4><a name="field-manual-start-date">Manual Start Date</a></h4></a>
+<p>Mendefinisikan secara manual tanggal dimulainya proses <strong><em>Manufacturing Order</em></strong></p>
+<a class="header" href="#a-namefield-manual-end-datemanual-end-datea" id="a-namefield-manual-end-datemanual-end-datea"><h4><a name="field-manual-end-date">Manual End Date</a></h4></a>
+<p>Mendefinisikan secara manual tanggal berakhirnya proses <strong><em>Manufacturing Order</em></strong></p>
+<a class="header" href="#a-namefield-free-serialisationfree-serialisationa" id="a-namefield-free-serialisationfree-serialisationa"><h4><a name="field-free-serialisation">Free Serialisation</a></h4></a>
+<p>#TODO</p>
+<a class="header" href="#a-namefield-sale-referensisale-referencea" id="a-namefield-sale-referensisale-referencea"><h4><a name="field-sale-referensi">Sale Reference</a></h4></a>
+<p>Mendefinisikan referensi penjualan</p>
+<a class="header" href="#a-namefield-sale-namesale-namea" id="a-namefield-sale-namesale-namea"><h4><a name="field-sale-name">Sale Name</a></h4></a>
+<p>Mendefinisikan nama penjualan</p>
+<a class="header" href="#a-namefield-product-moveproduct-movea" id="a-namefield-product-moveproduct-movea"><h4><a name="field-product-move">Product Move</a></h4></a>
+<p>Mendefinisikan pergerakan stock/produk</p>
+<a class="header" href="#a-namefield-manufacturing-requestmanufacturing-requesta" id="a-namefield-manufacturing-requestmanufacturing-requesta"><h4><a name="field-manufacturing-request">Manufacturing Request</a></h4></a>
+<p>Mendefinisikan permintaan produksi</p>
+<a class="header" href="#a-nametab-workflow-policytab-workflow-policya" id="a-nametab-workflow-policytab-workflow-policya"><h3><a name="tab-workflow-policy">TAB WORKFLOW POLICY</a></h3></a>
+<p><img src="../../img/mo/tab-workflow-policy.png" alt="" /></p>
+<a class="header" href="#a-namefield-can-confirmcan-confirma" id="a-namefield-can-confirmcan-confirma"><h4><a name="field-can-confirm">Can Confirm</a></h4></a>
+<p>Diisi otomatis oleh Odoo. Jika aktif, maka user yang membuka data <strong><em>Manufacturing Order</em></strong> dapat melakukan <a href="./konfirmasi.html">Konfirmasi Manufacturing Order</a>.</p>
+<a class="header" href="#a-namefield-can-producecan-producea" id="a-namefield-can-producecan-producea"><h4><a name="field-can-produce">Can Produce</a></h4></a>
+<p>Diisi otomatis oleh Odoo. Jika aktif, maka user yang membuka data <strong><em>Manufacturing Order</em></strong> dapat melakukan <a href="./produksi.html">Produksi Finished Goods</a>.</p>
+<a class="header" href="#a-namefield-can-check-availabilitycan-check-availabilitya" id="a-namefield-can-check-availabilitycan-check-availabilitya"><h4><a name="field-can-check-availability">Can Check Availability</a></h4></a>
+<p>Diisi otomatis oleh Odoo. Jika aktif, maka user yang membuka data <strong><em>Manufacturing Order</em></strong> dapat melakukan <a href="./cek-rm.html">Cek Ketersediaan Raw Material</a>.</p>
+<a class="header" href="#a-namefield-can-force-reservationcan-force-reservationa" id="a-namefield-can-force-reservationcan-force-reservationa"><h4><a name="field-can-force-reservation">Can Force Reservation</a></h4></a>
+<p>Diisi otomatis oleh Odoo. Jika aktif, maka user yang membuka data <strong><em>Manufacturing Order</em></strong> dapat melakukan <strong><em>Force Reservation</em></strong></p>
+<a class="header" href="#a-namefield-can-startcan-starta" id="a-namefield-can-startcan-starta"><h4><a name="field-can-start">Can Start</a></h4></a>
+<p>Diisi otomatis oleh Odoo. Jika aktif, maka user yang membuka data <strong><em>Manufacturing Order</em></strong> dapat melakukan <a href="./mulai.html">Memulai Manufacturing Order</a>.</p>
+<a class="header" href="#a-namefield-can-cancelcan-cancela" id="a-namefield-can-cancelcan-cancela"><h4><a name="field-can-cancel">Can Cancel</a></h4></a>
+<p>Diisi otomatis oleh Odoo. Jika aktif, maka user yang membuka data <strong><em>Manufacturing Order</em></strong> dapat melakukan <a href="./batal.html">Membatalkan Manufacturing Order</a>.</p>
+<a class="header" href="#a-nametab-notestab-notesa" id="a-nametab-notestab-notesa"><h3><a name="tab-notes">TAB NOTES</a></h3></a>
+<p><img src="../../img/mo/tab-notes.png" alt="" /></p>
+<a class="header" href="#a-namefield-notesnotesa" id="a-namefield-notesnotesa"><h4><a name="field-notes">Notes</a></h4></a>
+<p>Catatan/Informasi tambahan terkait <strong><em>Manufacturing Order</em></strong></p>
+<a class="header" href="#a-nametab-byproducttab-byproducta" id="a-nametab-byproducttab-byproducta"><h3><a name="tab-byproduct">TAB BYPRODUCT</a></h3></a>
+<p><img src="../../img/mo/tab-byproduct.png" alt="" />
+<img src="../../img/mo/tab-byproduct-form.png" alt="" /></p>
+<a class="header" href="#a-namefield-byproductbyproducta" id="a-namefield-byproductbyproducta"><h4><a name="field-byproduct">Byproduct</a></h4></a>
+<p>#TODO</p>
+<a class="header" href="#a-namefield-join-cost-methodjoin-cost-methoda" id="a-namefield-join-cost-methodjoin-cost-methoda"><h4><a name="field-join-cost-method">Join Cost Method</a></h4></a>
+<p>#TODO</p>
+<a class="header" href="#a-namefield-join-costjoin-costa" id="a-namefield-join-costjoin-costa"><h4><a name="field-join-cost">Join Cost</a></h4></a>
+<p>#TODO</p>
+<a class="header" href="#a-namefield-multipliermultipliera" id="a-namefield-multipliermultipliera"><h4><a name="field-multiplier">Multiplier</a></h4></a>
+<p>#TODO</p>
+<a class="header" href="#a-namefield-byproduct-costbyproduct-costa" id="a-namefield-byproduct-costbyproduct-costa"><h4><a name="field-byproduct-cost">Byproduct Cost</a></h4></a>
+<p>#TODO</p>
+<a class="header" href="#a-nametab-applied-costtab-applied-costa" id="a-nametab-applied-costtab-applied-costa"><h3><a name="tab-applied-cost">TAB APPLIED COST</a></h3></a>
+<p><img src="../../img/mo/tab-applied-cost.png" alt="" />
+<img src="../../img/mo/tab-applied-cost-form.png" alt="" /></p>
+<a class="header" href="#a-namefield-applied-cost-datedatea" id="a-namefield-applied-cost-datedatea"><h4><a name="field-applied-cost-date">Date</a></h4></a>
+<p>Mendefinisikan tanggal <em>Applied Cost</em></p>
+<a class="header" href="#a-namefield-applied-categ-dateapplied-cost-categorya" id="a-namefield-applied-categ-dateapplied-cost-categorya"><h4><a name="field-applied-categ-date">Applied Cost Category</a></h4></a>
+<p>Mendefinisikan kategori <em>Applied Cost</em></p>
+<a class="header" href="#a-namefield-applied-categ-productproducta" id="a-namefield-applied-categ-productproducta"><h4><a name="field-applied-categ-product">Product</a></h4></a>
+<p>Mendefinisikan produk <em>Applied Cost</em></p>
+<a class="header" href="#a-namefield-applied-categ-descriptiondescriptiona" id="a-namefield-applied-categ-descriptiondescriptiona"><h4><a name="field-applied-categ-description">Description</a></h4></a>
+<p>Mendefinisikan deskripsi <em>Applied Cost</em></p>
+<a class="header" href="#a-namefield-applied-categ-unit-priceunit-pricea" id="a-namefield-applied-categ-unit-priceunit-pricea"><h4><a name="field-applied-categ-unit-price">Unit Price</a></h4></a>
+<p>Mendefinisikan harga satuan <em>Applied Cost</em></p>
+<a class="header" href="#a-namefield-applied-categ-qtyqtya" id="a-namefield-applied-categ-qtyqtya"><h4><a name="field-applied-categ-qty">Qty.</a></h4></a>
+<p>Mendefinisikan kuantitas <em>Applied Cost</em></p>
+<a class="header" href="#a-namefield-applied-categ-uomuoma" id="a-namefield-applied-categ-uomuoma"><h4><a name="field-applied-categ-uom">UoM</a></h4></a>
+<p>Mendefinisikan satuan <em>Applied Cost</em></p>
+<a class="header" href="#a-namefield-amount-totaluoma" id="a-namefield-amount-totaluoma"><h4><a name="field-amount-total">UoM</a></h4></a>
+<p>Menginformasikan total <em>Applied Cost</em></p>
+<a class="header" href="#a-namefield-debit-accdebit-accounta" id="a-namefield-debit-accdebit-accounta"><h4><a name="field-debit-acc">Debit Account</a></h4></a>
+<p>Mendefinisikan akun debet</p>
+<a class="header" href="#a-namefield-credit-accdebit-accounta" id="a-namefield-credit-accdebit-accounta"><h4><a name="field-credit-acc">Debit Account</a></h4></a>
+<p>Mendefinisikan akun kredit</p>
+<a class="header" href="#a-namefield-jurnaljurnala" id="a-namefield-jurnaljurnala"><h4><a name="field-jurnal">Jurnal</a></h4></a>
+<p>Mendefinisikan jurnal yang digunakan</p>
+<a class="header" href="#a-namefield-jurnal-entryjoernal-entrya" id="a-namefield-jurnal-entryjoernal-entrya"><h4><a name="field-jurnal-entry">Joernal Entry</a></h4></a>
+<p>Mendefinisikan entri jurnal</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="../../transaksi/mo.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="../../transaksi/mo/membuat.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a href="../../transaksi/mo.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a href="../../transaksi/mo/membuat.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script src="../../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="../../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>
