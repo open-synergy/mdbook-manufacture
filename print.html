@@ -1,9 +1,13 @@
 <!DOCTYPE HTML>
-<html lang="en" class="sidebar-visible no-js">
+<html lang="en" class="sidebar-visible no-js light">
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
         <title>Odoo - Manufactrure</title>
+        
+        <meta name="robots" content="noindex" />
+        
+
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -30,11 +34,11 @@
 
         
     </head>
-    <body class="light">
+    <body>
         <!-- Provide site root to javascript -->
         <script type="text/javascript">
             var path_to_root = "";
-            var default_theme = "light";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "light" : "light";
         </script>
 
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
@@ -56,10 +60,13 @@
         <!-- Set the theme before any content is loaded, prevents flash -->
         <script type="text/javascript">
             var theme;
-            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { } 
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
             if (theme === null || theme === undefined) { theme = default_theme; }
-            document.body.className = theme;
-            document.querySelector('html').className = theme + ' js';
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
         </script>
 
         <!-- Hide / unhide sidebar before it is displayed -->
@@ -75,44 +82,46 @@
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <ol class="chapter"><li class="affix"><a href="prakata.html">Pra-Kata</a></li><li class="affix"><a href="terminologi.html">Terminologi</a></li><li><a href="transaksi.html"><strong aria-hidden="true">1.</strong> Transaksi</a></li><li><ol class="section"><li><a href="transaksi/mo.html"><strong aria-hidden="true">1.1.</strong> Manufacturing Order</a></li><li><ol class="section"><li><a href="transaksi/mo/penjelasan.html"><strong aria-hidden="true">1.1.1.</strong> Penjelasan Manufacturing Order</a></li><li><a href="transaksi/mo/membuat.html"><strong aria-hidden="true">1.1.2.</strong> Membuat Manufacturing Order</a></li><li><a href="transaksi/mo/modifikasi.html"><strong aria-hidden="true">1.1.3.</strong> Memodifikasi Manufacturing Order</a></li><li><a href="transaksi/mo/menghapus.html"><strong aria-hidden="true">1.1.4.</strong> Menghapus Manufacturing Order</a></li><li><a href="transaksi/mo/konfirmasi.html"><strong aria-hidden="true">1.1.5.</strong> Konfirmasi Manufacturing Order</a></li><li><a href="transaksi/mo/batal.html"><strong aria-hidden="true">1.1.6.</strong> Membatalkan Manufacturing Order</a></li><li><a href="transaksi/mo/tambah-rm.html"><strong aria-hidden="true">1.1.7.</strong> Menambahkan Raw Material</a></li><li><a href="transaksi/mo/cek-rm.html"><strong aria-hidden="true">1.1.8.</strong> Cek Ketersediaan Raw Material</a></li><li><a href="transaksi/mo/mulai.html"><strong aria-hidden="true">1.1.9.</strong> Memulai Manufacturing Order</a></li><li><a href="transaksi/mo/konsumsi.html"><strong aria-hidden="true">1.1.10.</strong> Konsumsi Raw Material</a></li><li><a href="transaksi/mo/produksi.html"><strong aria-hidden="true">1.1.11.</strong> Produksi Finished Goods</a></li><li><a href="transaksi/mo/selesai.html"><strong aria-hidden="true">1.1.12.</strong> Menyelesaikan Manufacturing Order</a></li></ol></li></ol></li></ol>
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="prakata.html">Pra-Kata</a></li><li class="chapter-item expanded affix "><a href="terminologi.html">Terminologi</a></li><li class="chapter-item expanded "><a href="transaksi.html"><strong aria-hidden="true">1.</strong> Transaksi</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="transaksi/mo.html"><strong aria-hidden="true">1.1.</strong> Manufacturing Order</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="transaksi/mo/penjelasan.html"><strong aria-hidden="true">1.1.1.</strong> Penjelasan Manufacturing Order</a></li><li class="chapter-item expanded "><a href="transaksi/mo/membuat.html"><strong aria-hidden="true">1.1.2.</strong> Membuat Manufacturing Order</a></li><li class="chapter-item expanded "><a href="transaksi/mo/modifikasi.html"><strong aria-hidden="true">1.1.3.</strong> Memodifikasi Manufacturing Order</a></li><li class="chapter-item expanded "><a href="transaksi/mo/menghapus.html"><strong aria-hidden="true">1.1.4.</strong> Menghapus Manufacturing Order</a></li><li class="chapter-item expanded "><a href="transaksi/mo/konfirmasi.html"><strong aria-hidden="true">1.1.5.</strong> Konfirmasi Manufacturing Order</a></li><li class="chapter-item expanded "><a href="transaksi/mo/batal.html"><strong aria-hidden="true">1.1.6.</strong> Membatalkan Manufacturing Order</a></li><li class="chapter-item expanded "><a href="transaksi/mo/tambah-rm.html"><strong aria-hidden="true">1.1.7.</strong> Menambahkan Raw Material</a></li><li class="chapter-item expanded "><a href="transaksi/mo/cek-rm.html"><strong aria-hidden="true">1.1.8.</strong> Cek Ketersediaan Raw Material</a></li><li class="chapter-item expanded "><a href="transaksi/mo/mulai.html"><strong aria-hidden="true">1.1.9.</strong> Memulai Manufacturing Order</a></li><li class="chapter-item expanded "><a href="transaksi/mo/konsumsi.html"><strong aria-hidden="true">1.1.10.</strong> Konsumsi Raw Material</a></li><li class="chapter-item expanded "><a href="transaksi/mo/produksi.html"><strong aria-hidden="true">1.1.11.</strong> Produksi Finished Goods</a></li><li class="chapter-item expanded "><a href="transaksi/mo/selesai.html"><strong aria-hidden="true">1.1.12.</strong> Menyelesaikan Manufacturing Order</a></li></ol></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
 
         <div id="page-wrapper" class="page-wrapper">
 
             <div class="page">
                 
-                <div id="menu-bar" class="menu-bar">
-                    <div id="menu-bar-sticky-container">
-                        <div class="left-buttons">
-                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
-                                <i class="fa fa-bars"></i>
-                            </button>
-                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
-                                <i class="fa fa-paint-brush"></i>
-                            </button>
-                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
-                                <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
-                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
-                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
-                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
-                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
-                            </ul>
-                            
-                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
-                                <i class="fa fa-search"></i>
-                            </button>
-                            
-                        </div>
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
 
-                        <h1 class="menu-title">Odoo - Manufactrure</h1> 
+                    <h1 class="menu-title">Odoo - Manufactrure</h1>
 
-                        <div class="right-buttons">
-                            <a href="print.html" title="Print this book" aria-label="Print this book">
-                                <i id="print-button" class="fa fa-print"></i>
-                            </a>
-                            
-                        </div>
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
                     </div>
                 </div>
 
@@ -140,198 +149,198 @@
 
                 <div id="content" class="content">
                     <main>
-                        <a class="header" href="#pra-kata" id="pra-kata"><h1>Pra-Kata</h1></a>
-<a class="header" href="#terminologi" id="terminologi"><h1>Terminologi</h1></a>
-<a class="header" href="#transaksi" id="transaksi"><h1>Transaksi</h1></a>
-<a class="header" href="#manufacturing-order" id="manufacturing-order"><h1>Manufacturing Order</h1></a>
-<a class="header" href="#penjelasan-manufacturing-order" id="penjelasan-manufacturing-order"><h1>Penjelasan Manufacturing Order</h1></a>
+                        <h1><a class="header" href="#pra-kata" id="pra-kata">Pra-Kata</a></h1>
+<h1><a class="header" href="#terminologi" id="terminologi">Terminologi</a></h1>
+<h1><a class="header" href="#transaksi" id="transaksi">Transaksi</a></h1>
+<h1><a class="header" href="#manufacturing-order" id="manufacturing-order">Manufacturing Order</a></h1>
+<h1><a class="header" href="#penjelasan-manufacturing-order" id="penjelasan-manufacturing-order">Penjelasan Manufacturing Order</a></h1>
 <p>Informasi pada Manufacturing Order dibagi menjadi beberapa area, diantaranya:</p>
 <ul>
-<li><a href="#bagian-header">Header</a></li>
-<li><a href="#tab-consumed-product">Tab Consumend Product</a></li>
-<li><a href="#tab-finished-product">Tab Finished Product</a></li>
-<li><a href="#tab-scheduled-product">Tab Scheduled Product</a></li>
-<li><a href="#tab-extra-info">Tab Extra Information</a></li>
-<li><a href="#tab-workflow-policy">Tab Workflow Policy</a></li>
-<li><a href="#tab-notes">Tab Notes</a></li>
-<li><a href="#tab-byproduct">Tab Byproduct</a></li>
-<li><a href="#tab-applied-cost">Tab Applied Cost</a></li>
+<li><a href="transaksi/mo/penjelasan.html#bagian-header">Header</a></li>
+<li><a href="transaksi/mo/penjelasan.html#tab-consumed-product">Tab Consumend Product</a></li>
+<li><a href="transaksi/mo/penjelasan.html#tab-finished-product">Tab Finished Product</a></li>
+<li><a href="transaksi/mo/penjelasan.html#tab-scheduled-product">Tab Scheduled Product</a></li>
+<li><a href="transaksi/mo/penjelasan.html#tab-extra-info">Tab Extra Information</a></li>
+<li><a href="transaksi/mo/penjelasan.html#tab-workflow-policy">Tab Workflow Policy</a></li>
+<li><a href="transaksi/mo/penjelasan.html#tab-notes">Tab Notes</a></li>
+<li><a href="transaksi/mo/penjelasan.html#tab-byproduct">Tab Byproduct</a></li>
+<li><a href="transaksi/mo/penjelasan.html#tab-applied-cost">Tab Applied Cost</a></li>
 </ul>
-<a class="header" href="#a-namebagian-headerheadera" id="a-namebagian-headerheadera"><h3><a name="bagian-header">HEADER</a></h3></a>
-<p><img src="../../img/mo/header.png" alt="" /></p>
-<a class="header" href="#a-namefield-smart-buttonsmart-buttona" id="a-namefield-smart-buttonsmart-buttona"><h4><a name="field-smart-button">Smart Button</a></h4></a>
-<p><img src="../../img/mo/smart-button.png" alt="" /><br/></p>
+<h3><a class="header" href="#a-namebagian-headerheadera" id="a-namebagian-headerheadera"><a name="bagian-header">HEADER</a></a></h3>
+<p><img src="transaksi/mo/../../img/mo/header.png" alt="" /></p>
+<h4><a class="header" href="#a-namefield-smart-buttonsmart-buttona" id="a-namefield-smart-buttonsmart-buttona"><a name="field-smart-button">Smart Button</a></a></h4>
+<p><img src="transaksi/mo/../../img/mo/smart-button.png" alt="" /><br/></p>
 <p>Tombol-tombol yang berfungsi sebagai <em>Shortcut</em> untuk masuk ke dalam menu yang berkaitan dan juga sebagai pemberi informasi mengenai seberapa banyak data, total, dll <br /></p>
-<a class="header" href="#a-namefield-number-manufacturing-ordera" id="a-namefield-number-manufacturing-ordera"><h4><a name="field-number"># Manufacturing Order</a></h4></a>
+<h4><a class="header" href="#a-namefield-number-manufacturing-ordera" id="a-namefield-number-manufacturing-ordera"><a name="field-number"># Manufacturing Order</a></a></h4>
 <p>Nomor <strong><em>Manufacturing Order</em></strong>.</p>
-<a class="header" href="#a-namefield-typetypea" id="a-namefield-typetypea"><h4><a name="field-type">Type</a></h4></a>
+<h4><a class="header" href="#a-namefield-typetypea" id="a-namefield-typetypea"><a name="field-type">Type</a></a></h4>
 <p>Mendefinisikan tipe dari <strong><em>Manufacturing Order</em></strong>.</p>
-<a class="header" href="#a-namefield-productproducta" id="a-namefield-productproducta"><h4><a name="field-product">Product</a></h4></a>
+<h4><a class="header" href="#a-namefield-productproducta" id="a-namefield-productproducta"><a name="field-product">Product</a></a></h4>
 <p>Mendefinisikan produk jadi yang dihasilkan dari proses <strong><em>Manufacturing Order</em></strong>.</p>
-<a class="header" href="#a-nameproduct-qtyproduct-quantitya" id="a-nameproduct-qtyproduct-quantitya"><h4><a name="product-qty">Product Quantity</a></h4></a>
-<p><img src="../../img/mo/product-quantity.png" alt="" /></p>
+<h4><a class="header" href="#a-nameproduct-qtyproduct-quantitya" id="a-nameproduct-qtyproduct-quantitya"><a name="product-qty">Product Quantity</a></a></h4>
+<p><img src="transaksi/mo/../../img/mo/product-quantity.png" alt="" /></p>
 <ul>
 <li><a name="field-product-qty"><strong>1.Quantity:</strong> Mendefinisikan jumlah produk jadi yang dihasilkan dari proses <strong><em>Manufacturing Order</em></strong>.</a></li>
 <li><a name="field-product-qty-uom"><strong>2.UoM:</strong> Mendefinisikan satuan produk jadi yang dihasilkan dari proses <strong><em>Manufacturing Order</em></strong>.</a></li>
 </ul>
-<a class="header" href="#a-nameproduct-uos-qtyproduct-uos-quantitya" id="a-nameproduct-uos-qtyproduct-uos-quantitya"><h4><a name="product-uos-qty">Product UoS Quantity</a></h4></a>
-<p><img src="../../img/mo/product-uos-quantity.png" alt="" /></p>
+<h4><a class="header" href="#a-nameproduct-uos-qtyproduct-uos-quantitya" id="a-nameproduct-uos-qtyproduct-uos-quantitya"><a name="product-uos-qty">Product UoS Quantity</a></a></h4>
+<p><img src="transaksi/mo/../../img/mo/product-uos-quantity.png" alt="" /></p>
 <ul>
 <li><a name="field-product-uos-qty"><strong>1.Quantity:</strong> Mendefinisikan jumlah produk jadi yang dihasilkan dari proses <strong><em>Manufacturing Order</em></strong>.</a></li>
 <li><a name="field-product-qty-uos"><strong>2.UoS:</strong> Mendefinisikan satuan produk jadi yang dihasilkan dari proses <strong><em>Manufacturing Order</em></strong>.</a></li>
 </ul>
-<a class="header" href="#a-namefield-scheduled-datescheduled-datea" id="a-namefield-scheduled-datescheduled-datea"><h4><a name="field-scheduled-date">Scheduled Date</a></h4></a>
+<h4><a class="header" href="#a-namefield-scheduled-datescheduled-datea" id="a-namefield-scheduled-datescheduled-datea"><a name="field-scheduled-date">Scheduled Date</a></a></h4>
 <p>Menjadwalkan tanggal proses <strong><em>Manufacturing Order</em></strong>.</p>
-<a class="header" href="#a-namefield-bombill-of-materiala" id="a-namefield-bombill-of-materiala"><h4><a name="field-bom">Bill of Material</a></h4></a>
+<h4><a class="header" href="#a-namefield-bombill-of-materiala" id="a-namefield-bombill-of-materiala"><a name="field-bom">Bill of Material</a></a></h4>
 <p>Mendefinisikan <strong><em>Bill of Material</em></strong>.</p>
-<a class="header" href="#a-namefield-resposibleresponsiblea" id="a-namefield-resposibleresponsiblea"><h4><a name="field-resposible">Responsible</a></h4></a>
+<h4><a class="header" href="#a-namefield-resposibleresponsiblea" id="a-namefield-resposibleresponsiblea"><a name="field-resposible">Responsible</a></a></h4>
 <p>Mendefinisikan user yang bertanggung jawab terkait proses <strong><em>Manufacturing Order</em></strong>.</p>
-<a class="header" href="#a-namefield-soruce-documentsource-documenta" id="a-namefield-soruce-documentsource-documenta"><h4><a name="field-soruce-document">Source Document</a></h4></a>
+<h4><a class="header" href="#a-namefield-soruce-documentsource-documenta" id="a-namefield-soruce-documentsource-documenta"><a name="field-soruce-document">Source Document</a></a></h4>
 <p>Mendefinisikan dokumen terkait proses <strong><em>Manufacturing Order</em></strong>.</p>
-<a class="header" href="#a-namefield-operating-unit-idsoperating-unitsa" id="a-namefield-operating-unit-idsoperating-unitsa"><h4><a name="field-operating-unit-ids">Operating Units</a></h4></a>
+<h4><a class="header" href="#a-namefield-operating-unit-idsoperating-unitsa" id="a-namefield-operating-unit-idsoperating-unitsa"><a name="field-operating-unit-ids">Operating Units</a></a></h4>
 <blockquote>
 <p><strong>Catatan:</strong> Isian ini hanya untuk user yang memiliki group <strong>Multi Operating Unit</strong></p>
 </blockquote>
 <p>Mendefinisikan operating unit terkait proses <strong><em>Manufacturing Order</em></strong>.</p>
-<a class="header" href="#a-namefield-projectprojecta" id="a-namefield-projectprojecta"><h4><a name="field-project">Project</a></h4></a>
+<h4><a class="header" href="#a-namefield-projectprojecta" id="a-namefield-projectprojecta"><a name="field-project">Project</a></a></h4>
 <p>Mendefinisikan projek terkait proses <strong><em>Manufacturing Order</em></strong>.</p>
-<a class="header" href="#a-namefield-raw-materials-locationraw-materials-locationa" id="a-namefield-raw-materials-locationraw-materials-locationa"><h4><a name="field-raw-materials-location">Raw Materials Location</a></h4></a>
+<h4><a class="header" href="#a-namefield-raw-materials-locationraw-materials-locationa" id="a-namefield-raw-materials-locationraw-materials-locationa"><a name="field-raw-materials-location">Raw Materials Location</a></a></h4>
 <p>Mendefinisikan lokasi bahan baku yang akan digunakan</p>
-<a class="header" href="#a-namefield-auto-create-procurementauto-create-procurement-groupa" id="a-namefield-auto-create-procurementauto-create-procurement-groupa"><h4><a name="field-auto-create-procurement">Auto Create Procurement Group</a></h4></a>
+<h4><a class="header" href="#a-namefield-auto-create-procurementauto-create-procurement-groupa" id="a-namefield-auto-create-procurementauto-create-procurement-groupa"><a name="field-auto-create-procurement">Auto Create Procurement Group</a></a></h4>
 <p>#TODO</p>
-<a class="header" href="#a-namefield-raw-material-procurementraw-material-procurement-groupa" id="a-namefield-raw-material-procurementraw-material-procurement-groupa"><h4><a name="field-raw-material-procurement">Raw Material Procurement Group</a></h4></a>
+<h4><a class="header" href="#a-namefield-raw-material-procurementraw-material-procurement-groupa" id="a-namefield-raw-material-procurementraw-material-procurement-groupa"><a name="field-raw-material-procurement">Raw Material Procurement Group</a></a></h4>
 <p>#TODO</p>
-<a class="header" href="#a-namefield-finished-products-locationfinished-products-locationa" id="a-namefield-finished-products-locationfinished-products-locationa"><h4><a name="field-finished-products-location">Finished Products Location</a></h4></a>
+<h4><a class="header" href="#a-namefield-finished-products-locationfinished-products-locationa" id="a-namefield-finished-products-locationfinished-products-locationa"><a name="field-finished-products-location">Finished Products Location</a></a></h4>
 <p>Mendefinisikan lokasi barang jadi yang akan digunakan</p>
-<a class="header" href="#a-namefield-use-raw-procurementuse-raw-material-procurement-groupa" id="a-namefield-use-raw-procurementuse-raw-material-procurement-groupa"><h4><a name="field-use-raw-procurement">Use Raw Material Procurement Group</a></h4></a>
+<h4><a class="header" href="#a-namefield-use-raw-procurementuse-raw-material-procurement-groupa" id="a-namefield-use-raw-procurementuse-raw-material-procurement-groupa"><a name="field-use-raw-procurement">Use Raw Material Procurement Group</a></a></h4>
 <p>#TODO</p>
-<a class="header" href="#a-namefield-finished-procurementfinished-good-procurement-groupa" id="a-namefield-finished-procurementfinished-good-procurement-groupa"><h4><a name="field-finished-procurement">Finished Good Procurement Group</a></h4></a>
+<h4><a class="header" href="#a-namefield-finished-procurementfinished-good-procurement-groupa" id="a-namefield-finished-procurementfinished-good-procurement-groupa"><a name="field-finished-procurement">Finished Good Procurement Group</a></a></h4>
 <p>#TODO</p>
-<a class="header" href="#a-nametab-consumed-producttab-consumed-producta" id="a-nametab-consumed-producttab-consumed-producta"><h3><a name="tab-consumed-product">TAB CONSUMED PRODUCT</a></h3></a>
-<p><img src="../../img/mo/tab-consumed-products.png" alt="" /></p>
-<a class="header" href="#a-namefield-product-to-consumedproducts-to-consumea" id="a-namefield-product-to-consumedproducts-to-consumea"><h4><a name="field-product-to-consumed">Products to Consume</a></h4></a>
+<h3><a class="header" href="#a-nametab-consumed-producttab-consumed-producta" id="a-nametab-consumed-producttab-consumed-producta"><a name="tab-consumed-product">TAB CONSUMED PRODUCT</a></a></h3>
+<p><img src="transaksi/mo/../../img/mo/tab-consumed-products.png" alt="" /></p>
+<h4><a class="header" href="#a-namefield-product-to-consumedproducts-to-consumea" id="a-namefield-product-to-consumedproducts-to-consumea"><a name="field-product-to-consumed">Products to Consume</a></a></h4>
 <p>Mendefinisikan produk(<strong>bahan baku</strong>) <strong>&quot;yang akan digunakan&quot;</strong> untuk proses membuat produk(<strong>barang jadi</strong>).
 Isian ini dapat diisi otomatis oleh Odoo berdasarkan <a href="transaksi/mo/./penjelasan.html#field-bom">Bill of Material</a> yang dipilih atau menambahkannya secara manual dengan mengklik tombol <strong><em>Add an item</em></strong></p>
-<a class="header" href="#a-namefield-consumed-productconsumed-productsa" id="a-namefield-consumed-productconsumed-productsa"><h4><a name="field-consumed-product">Consumed Products</a></h4></a>
+<h4><a class="header" href="#a-namefield-consumed-productconsumed-productsa" id="a-namefield-consumed-productconsumed-productsa"><a name="field-consumed-product">Consumed Products</a></a></h4>
 <p>Mendefinisikan produk(<strong>bahan baku</strong>) <strong>&quot;yang sudah digunakan&quot;</strong> untuk proses membuat produk(<strong>barang jadi</strong>).</p>
-<a class="header" href="#a-nametab-finished-producttab-finished-producta" id="a-nametab-finished-producttab-finished-producta"><h3><a name="tab-finished-product">TAB FINISHED PRODUCT</a></h3></a>
-<p><img src="../../img/mo/tab-finished-products.png" alt="" /></p>
-<a class="header" href="#a-namefield-manual-production-lotmanual-production-lota" id="a-namefield-manual-production-lotmanual-production-lota"><h4><a name="field-manual-production-lot">Manual Production Lot</a></h4></a>
+<h3><a class="header" href="#a-nametab-finished-producttab-finished-producta" id="a-nametab-finished-producttab-finished-producta"><a name="tab-finished-product">TAB FINISHED PRODUCT</a></a></h3>
+<p><img src="transaksi/mo/../../img/mo/tab-finished-products.png" alt="" /></p>
+<h4><a class="header" href="#a-namefield-manual-production-lotmanual-production-lota" id="a-namefield-manual-production-lotmanual-production-lota"><a name="field-manual-production-lot">Manual Production Lot</a></a></h4>
 <p>#TODO</p>
-<a class="header" href="#a-namefield-concatenate-lots-componentsconcatenate-lots-componentsa" id="a-namefield-concatenate-lots-componentsconcatenate-lots-componentsa"><h4><a name="field-concatenate-lots-components">Concatenate Lots Components</a></h4></a>
+<h4><a class="header" href="#a-namefield-concatenate-lots-componentsconcatenate-lots-componentsa" id="a-namefield-concatenate-lots-componentsconcatenate-lots-componentsa"><a name="field-concatenate-lots-components">Concatenate Lots Components</a></a></h4>
 <p>#TODO</p>
-<a class="header" href="#a-namefield-product-to-produceproducts-to-producea" id="a-namefield-product-to-produceproducts-to-producea"><h4><a name="field-product-to-produce">Products to Produce</a></h4></a>
+<h4><a class="header" href="#a-namefield-product-to-produceproducts-to-producea" id="a-namefield-product-to-produceproducts-to-producea"><a name="field-product-to-produce">Products to Produce</a></a></h4>
 <p>Mendefinisikan produk(<strong>barang jadi</strong>) <strong>&quot;yang akan diproduksi&quot;</strong>.</p>
-<a class="header" href="#a-namefield-produced-productsproduced-productsa" id="a-namefield-produced-productsproduced-productsa"><h4><a name="field-produced-products">Produced Products</a></h4></a>
+<h4><a class="header" href="#a-namefield-produced-productsproduced-productsa" id="a-namefield-produced-productsproduced-productsa"><a name="field-produced-products">Produced Products</a></a></h4>
 <p>Mendefinisikan produk(<strong>barang jadi</strong>) <strong>&quot;yang sudah diproduksi&quot;</strong>.</p>
-<a class="header" href="#a-nametab-scheduled-producttab-scheduled-producta" id="a-nametab-scheduled-producttab-scheduled-producta"><h3><a name="tab-scheduled-product">TAB SCHEDULED PRODUCT</a></h3></a>
-<p><img src="../../img/mo/tab-scheduled-product.png" alt="" />
-<img src="../../img/mo/tab-scheduled-product-form.png" alt="" /></p>
-<a class="header" href="#a-namefield-scheduled-namenamea" id="a-namefield-scheduled-namenamea"><h4><a name="field-scheduled-name">Name</a></h4></a>
+<h3><a class="header" href="#a-nametab-scheduled-producttab-scheduled-producta" id="a-nametab-scheduled-producttab-scheduled-producta"><a name="tab-scheduled-product">TAB SCHEDULED PRODUCT</a></a></h3>
+<p><img src="transaksi/mo/../../img/mo/tab-scheduled-product.png" alt="" />
+<img src="transaksi/mo/../../img/mo/tab-scheduled-product-form.png" alt="" /></p>
+<h4><a class="header" href="#a-namefield-scheduled-namenamea" id="a-namefield-scheduled-namenamea"><a name="field-scheduled-name">Name</a></a></h4>
 <p>Mendefinisikan nama <em>Scheduled Goods</em></p>
-<a class="header" href="#a-namefield-scheduled-productproducta" id="a-namefield-scheduled-productproducta"><h4><a name="field-scheduled-product">Product</a></h4></a>
+<h4><a class="header" href="#a-namefield-scheduled-productproducta" id="a-namefield-scheduled-productproducta"><a name="field-scheduled-product">Product</a></a></h4>
 <p>Mendefinisikan produk <em>Scheduled Goods</em></p>
-<a class="header" href="#a-namefield-scheduled-reserved-lotreserved-lota" id="a-namefield-scheduled-reserved-lotreserved-lota"><h4><a name="field-scheduled-reserved-lot">Reserved Lot</a></h4></a>
+<h4><a class="header" href="#a-namefield-scheduled-reserved-lotreserved-lota" id="a-namefield-scheduled-reserved-lotreserved-lota"><a name="field-scheduled-reserved-lot">Reserved Lot</a></a></h4>
 <p>#TODO</p>
-<a class="header" href="#a-namefield-scheduled-product-qtyproduct-quantitya" id="a-namefield-scheduled-product-qtyproduct-quantitya"><h4><a name="field-scheduled-product-qty">Product Quantity</a></h4></a>
+<h4><a class="header" href="#a-namefield-scheduled-product-qtyproduct-quantitya" id="a-namefield-scheduled-product-qtyproduct-quantitya"><a name="field-scheduled-product-qty">Product Quantity</a></a></h4>
 <p>Mendefinisikan kuantitas produk <em>Scheduled Goods</em></p>
-<a class="header" href="#a-namefield-added-post-startupadded-post-startupa" id="a-namefield-added-post-startupadded-post-startupa"><h4><a name="field-added-post-startup">Added Post-startup</a></h4></a>
+<h4><a class="header" href="#a-namefield-added-post-startupadded-post-startupa" id="a-namefield-added-post-startupadded-post-startupa"><a name="field-added-post-startup">Added Post-startup</a></a></h4>
 <p>#TODO</p>
-<a class="header" href="#a-namefield-scheduled-product-uomproduct-unit-of-measurea" id="a-namefield-scheduled-product-uomproduct-unit-of-measurea"><h4><a name="field-scheduled-product-uom">Product Unit Of Measure</a></h4></a>
+<h4><a class="header" href="#a-namefield-scheduled-product-uomproduct-unit-of-measurea" id="a-namefield-scheduled-product-uomproduct-unit-of-measurea"><a name="field-scheduled-product-uom">Product Unit Of Measure</a></a></h4>
 <p>Mendefinisikan satuan produk <em>Scheduled Goods</em></p>
-<a class="header" href="#a-namefield-scheduled-product-uos-qtyproduct-uos-quantitya" id="a-namefield-scheduled-product-uos-qtyproduct-uos-quantitya"><h4><a name="field-scheduled-product-uos-qty">Product UoS Quantity</a></h4></a>
+<h4><a class="header" href="#a-namefield-scheduled-product-uos-qtyproduct-uos-quantitya" id="a-namefield-scheduled-product-uos-qtyproduct-uos-quantitya"><a name="field-scheduled-product-uos-qty">Product UoS Quantity</a></a></h4>
 <p>Mendefinisikan kuantitas produk UoS <em>Scheduled Goods</em></p>
-<a class="header" href="#a-namefield-scheduled-product-uosproduct-uosa" id="a-namefield-scheduled-product-uosproduct-uosa"><h4><a name="field-scheduled-product-uos">Product UoS</a></h4></a>
+<h4><a class="header" href="#a-namefield-scheduled-product-uosproduct-uosa" id="a-namefield-scheduled-product-uosproduct-uosa"><a name="field-scheduled-product-uos">Product UoS</a></a></h4>
 <p>Mendefinisikan produk UoS <em>Scheduled Goods</em></p>
-<a class="header" href="#a-nametab-extra-infotab-extra-informationa" id="a-nametab-extra-infotab-extra-informationa"><h3><a name="tab-extra-info">TAB EXTRA INFORMATION</a></h3></a>
-<p><img src="../../img/mo/tab-extra-info.png" alt="" /></p>
-<a class="header" href="#a-namefield-priorityprioritya" id="a-namefield-priorityprioritya"><h4><a name="field-priority">Priority</a></h4></a>
+<h3><a class="header" href="#a-nametab-extra-infotab-extra-informationa" id="a-nametab-extra-infotab-extra-informationa"><a name="tab-extra-info">TAB EXTRA INFORMATION</a></a></h3>
+<p><img src="transaksi/mo/../../img/mo/tab-extra-info.png" alt="" /></p>
+<h4><a class="header" href="#a-namefield-priorityprioritya" id="a-namefield-priorityprioritya"><a name="field-priority">Priority</a></a></h4>
 <p>Mendefinisikan prioritas terkait proses <strong><em>Manufacturing Order</em></strong></p>
-<a class="header" href="#a-namefield-auto-start-datestart-datea" id="a-namefield-auto-start-datestart-datea"><h4><a name="field-auto-start-date">Start Date</a></h4></a>
+<h4><a class="header" href="#a-namefield-auto-start-datestart-datea" id="a-namefield-auto-start-datestart-datea"><a name="field-auto-start-date">Start Date</a></a></h4>
 <p>Diisi otomatis oleh odoo. Mendefinisikan tanggal dimulainya proses <strong><em>Manufacturing Order</em></strong></p>
-<a class="header" href="#a-namefield-auto-end-dateend-datea" id="a-namefield-auto-end-dateend-datea"><h4><a name="field-auto-end-date">End Date</a></h4></a>
+<h4><a class="header" href="#a-namefield-auto-end-dateend-datea" id="a-namefield-auto-end-dateend-datea"><a name="field-auto-end-date">End Date</a></a></h4>
 <p>Diisi otomatis oleh odoo. Mendefinisikan tanggal berakhirnya proses <strong><em>Manufacturing Order</em></strong></p>
-<a class="header" href="#a-namefield-manual-start-datemanual-start-datea" id="a-namefield-manual-start-datemanual-start-datea"><h4><a name="field-manual-start-date">Manual Start Date</a></h4></a>
+<h4><a class="header" href="#a-namefield-manual-start-datemanual-start-datea" id="a-namefield-manual-start-datemanual-start-datea"><a name="field-manual-start-date">Manual Start Date</a></a></h4>
 <p>Mendefinisikan secara manual tanggal dimulainya proses <strong><em>Manufacturing Order</em></strong></p>
-<a class="header" href="#a-namefield-manual-end-datemanual-end-datea" id="a-namefield-manual-end-datemanual-end-datea"><h4><a name="field-manual-end-date">Manual End Date</a></h4></a>
+<h4><a class="header" href="#a-namefield-manual-end-datemanual-end-datea" id="a-namefield-manual-end-datemanual-end-datea"><a name="field-manual-end-date">Manual End Date</a></a></h4>
 <p>Mendefinisikan secara manual tanggal berakhirnya proses <strong><em>Manufacturing Order</em></strong></p>
-<a class="header" href="#a-namefield-free-serialisationfree-serialisationa" id="a-namefield-free-serialisationfree-serialisationa"><h4><a name="field-free-serialisation">Free Serialisation</a></h4></a>
+<h4><a class="header" href="#a-namefield-free-serialisationfree-serialisationa" id="a-namefield-free-serialisationfree-serialisationa"><a name="field-free-serialisation">Free Serialisation</a></a></h4>
 <p>#TODO</p>
-<a class="header" href="#a-namefield-sale-referensisale-referencea" id="a-namefield-sale-referensisale-referencea"><h4><a name="field-sale-referensi">Sale Reference</a></h4></a>
+<h4><a class="header" href="#a-namefield-sale-referensisale-referencea" id="a-namefield-sale-referensisale-referencea"><a name="field-sale-referensi">Sale Reference</a></a></h4>
 <p>Mendefinisikan referensi penjualan</p>
-<a class="header" href="#a-namefield-sale-namesale-namea" id="a-namefield-sale-namesale-namea"><h4><a name="field-sale-name">Sale Name</a></h4></a>
+<h4><a class="header" href="#a-namefield-sale-namesale-namea" id="a-namefield-sale-namesale-namea"><a name="field-sale-name">Sale Name</a></a></h4>
 <p>Mendefinisikan nama penjualan</p>
-<a class="header" href="#a-namefield-product-moveproduct-movea" id="a-namefield-product-moveproduct-movea"><h4><a name="field-product-move">Product Move</a></h4></a>
+<h4><a class="header" href="#a-namefield-product-moveproduct-movea" id="a-namefield-product-moveproduct-movea"><a name="field-product-move">Product Move</a></a></h4>
 <p>Mendefinisikan pergerakan stock/produk</p>
-<a class="header" href="#a-namefield-manufacturing-requestmanufacturing-requesta" id="a-namefield-manufacturing-requestmanufacturing-requesta"><h4><a name="field-manufacturing-request">Manufacturing Request</a></h4></a>
+<h4><a class="header" href="#a-namefield-manufacturing-requestmanufacturing-requesta" id="a-namefield-manufacturing-requestmanufacturing-requesta"><a name="field-manufacturing-request">Manufacturing Request</a></a></h4>
 <p>Mendefinisikan permintaan produksi</p>
-<a class="header" href="#a-nametab-workflow-policytab-workflow-policya" id="a-nametab-workflow-policytab-workflow-policya"><h3><a name="tab-workflow-policy">TAB WORKFLOW POLICY</a></h3></a>
-<p><img src="../../img/mo/tab-workflow-policy.png" alt="" /></p>
-<a class="header" href="#a-namefield-can-confirmcan-confirma" id="a-namefield-can-confirmcan-confirma"><h4><a name="field-can-confirm">Can Confirm</a></h4></a>
+<h3><a class="header" href="#a-nametab-workflow-policytab-workflow-policya" id="a-nametab-workflow-policytab-workflow-policya"><a name="tab-workflow-policy">TAB WORKFLOW POLICY</a></a></h3>
+<p><img src="transaksi/mo/../../img/mo/tab-workflow-policy.png" alt="" /></p>
+<h4><a class="header" href="#a-namefield-can-confirmcan-confirma" id="a-namefield-can-confirmcan-confirma"><a name="field-can-confirm">Can Confirm</a></a></h4>
 <p>Diisi otomatis oleh Odoo. Jika aktif, maka user yang membuka data <strong><em>Manufacturing Order</em></strong> dapat melakukan <a href="transaksi/mo/./konfirmasi.html">Konfirmasi Manufacturing Order</a>.</p>
-<a class="header" href="#a-namefield-can-producecan-producea" id="a-namefield-can-producecan-producea"><h4><a name="field-can-produce">Can Produce</a></h4></a>
+<h4><a class="header" href="#a-namefield-can-producecan-producea" id="a-namefield-can-producecan-producea"><a name="field-can-produce">Can Produce</a></a></h4>
 <p>Diisi otomatis oleh Odoo. Jika aktif, maka user yang membuka data <strong><em>Manufacturing Order</em></strong> dapat melakukan <a href="transaksi/mo/./produksi.html">Produksi Finished Goods</a>.</p>
-<a class="header" href="#a-namefield-can-check-availabilitycan-check-availabilitya" id="a-namefield-can-check-availabilitycan-check-availabilitya"><h4><a name="field-can-check-availability">Can Check Availability</a></h4></a>
+<h4><a class="header" href="#a-namefield-can-check-availabilitycan-check-availabilitya" id="a-namefield-can-check-availabilitycan-check-availabilitya"><a name="field-can-check-availability">Can Check Availability</a></a></h4>
 <p>Diisi otomatis oleh Odoo. Jika aktif, maka user yang membuka data <strong><em>Manufacturing Order</em></strong> dapat melakukan <a href="transaksi/mo/./cek-rm.html">Cek Ketersediaan Raw Material</a>.</p>
-<a class="header" href="#a-namefield-can-force-reservationcan-force-reservationa" id="a-namefield-can-force-reservationcan-force-reservationa"><h4><a name="field-can-force-reservation">Can Force Reservation</a></h4></a>
+<h4><a class="header" href="#a-namefield-can-force-reservationcan-force-reservationa" id="a-namefield-can-force-reservationcan-force-reservationa"><a name="field-can-force-reservation">Can Force Reservation</a></a></h4>
 <p>Diisi otomatis oleh Odoo. Jika aktif, maka user yang membuka data <strong><em>Manufacturing Order</em></strong> dapat melakukan <strong><em>Force Reservation</em></strong></p>
-<a class="header" href="#a-namefield-can-startcan-starta" id="a-namefield-can-startcan-starta"><h4><a name="field-can-start">Can Start</a></h4></a>
+<h4><a class="header" href="#a-namefield-can-startcan-starta" id="a-namefield-can-startcan-starta"><a name="field-can-start">Can Start</a></a></h4>
 <p>Diisi otomatis oleh Odoo. Jika aktif, maka user yang membuka data <strong><em>Manufacturing Order</em></strong> dapat melakukan <a href="transaksi/mo/./mulai.html">Memulai Manufacturing Order</a>.</p>
-<a class="header" href="#a-namefield-can-cancelcan-cancela" id="a-namefield-can-cancelcan-cancela"><h4><a name="field-can-cancel">Can Cancel</a></h4></a>
+<h4><a class="header" href="#a-namefield-can-cancelcan-cancela" id="a-namefield-can-cancelcan-cancela"><a name="field-can-cancel">Can Cancel</a></a></h4>
 <p>Diisi otomatis oleh Odoo. Jika aktif, maka user yang membuka data <strong><em>Manufacturing Order</em></strong> dapat melakukan <a href="transaksi/mo/./batal.html">Membatalkan Manufacturing Order</a>.</p>
-<a class="header" href="#a-nametab-notestab-notesa" id="a-nametab-notestab-notesa"><h3><a name="tab-notes">TAB NOTES</a></h3></a>
-<p><img src="../../img/mo/tab-notes.png" alt="" /></p>
-<a class="header" href="#a-namefield-notesnotesa" id="a-namefield-notesnotesa"><h4><a name="field-notes">Notes</a></h4></a>
+<h3><a class="header" href="#a-nametab-notestab-notesa" id="a-nametab-notestab-notesa"><a name="tab-notes">TAB NOTES</a></a></h3>
+<p><img src="transaksi/mo/../../img/mo/tab-notes.png" alt="" /></p>
+<h4><a class="header" href="#a-namefield-notesnotesa" id="a-namefield-notesnotesa"><a name="field-notes">Notes</a></a></h4>
 <p>Catatan/Informasi tambahan terkait <strong><em>Manufacturing Order</em></strong></p>
-<a class="header" href="#a-nametab-byproducttab-byproducta" id="a-nametab-byproducttab-byproducta"><h3><a name="tab-byproduct">TAB BYPRODUCT</a></h3></a>
-<p><img src="../../img/mo/tab-byproduct.png" alt="" />
-<img src="../../img/mo/tab-byproduct-form.png" alt="" /></p>
-<a class="header" href="#a-namefield-byproductbyproducta" id="a-namefield-byproductbyproducta"><h4><a name="field-byproduct">Byproduct</a></h4></a>
+<h3><a class="header" href="#a-nametab-byproducttab-byproducta" id="a-nametab-byproducttab-byproducta"><a name="tab-byproduct">TAB BYPRODUCT</a></a></h3>
+<p><img src="transaksi/mo/../../img/mo/tab-byproduct.png" alt="" />
+<img src="transaksi/mo/../../img/mo/tab-byproduct-form.png" alt="" /></p>
+<h4><a class="header" href="#a-namefield-byproductbyproducta" id="a-namefield-byproductbyproducta"><a name="field-byproduct">Byproduct</a></a></h4>
 <p>#TODO</p>
-<a class="header" href="#a-namefield-join-cost-methodjoin-cost-methoda" id="a-namefield-join-cost-methodjoin-cost-methoda"><h4><a name="field-join-cost-method">Join Cost Method</a></h4></a>
+<h4><a class="header" href="#a-namefield-join-cost-methodjoin-cost-methoda" id="a-namefield-join-cost-methodjoin-cost-methoda"><a name="field-join-cost-method">Join Cost Method</a></a></h4>
 <p>#TODO</p>
-<a class="header" href="#a-namefield-join-costjoin-costa" id="a-namefield-join-costjoin-costa"><h4><a name="field-join-cost">Join Cost</a></h4></a>
+<h4><a class="header" href="#a-namefield-join-costjoin-costa" id="a-namefield-join-costjoin-costa"><a name="field-join-cost">Join Cost</a></a></h4>
 <p>#TODO</p>
-<a class="header" href="#a-namefield-multipliermultipliera" id="a-namefield-multipliermultipliera"><h4><a name="field-multiplier">Multiplier</a></h4></a>
+<h4><a class="header" href="#a-namefield-multipliermultipliera" id="a-namefield-multipliermultipliera"><a name="field-multiplier">Multiplier</a></a></h4>
 <p>#TODO</p>
-<a class="header" href="#a-namefield-byproduct-costbyproduct-costa" id="a-namefield-byproduct-costbyproduct-costa"><h4><a name="field-byproduct-cost">Byproduct Cost</a></h4></a>
+<h4><a class="header" href="#a-namefield-byproduct-costbyproduct-costa" id="a-namefield-byproduct-costbyproduct-costa"><a name="field-byproduct-cost">Byproduct Cost</a></a></h4>
 <p>#TODO</p>
-<a class="header" href="#a-nametab-applied-costtab-applied-costa" id="a-nametab-applied-costtab-applied-costa"><h3><a name="tab-applied-cost">TAB APPLIED COST</a></h3></a>
-<p><img src="../../img/mo/tab-applied-cost.png" alt="" />
-<img src="../../img/mo/tab-applied-cost-form.png" alt="" /></p>
-<a class="header" href="#a-namefield-applied-cost-datedatea" id="a-namefield-applied-cost-datedatea"><h4><a name="field-applied-cost-date">Date</a></h4></a>
+<h3><a class="header" href="#a-nametab-applied-costtab-applied-costa" id="a-nametab-applied-costtab-applied-costa"><a name="tab-applied-cost">TAB APPLIED COST</a></a></h3>
+<p><img src="transaksi/mo/../../img/mo/tab-applied-cost.png" alt="" />
+<img src="transaksi/mo/../../img/mo/tab-applied-cost-form.png" alt="" /></p>
+<h4><a class="header" href="#a-namefield-applied-cost-datedatea" id="a-namefield-applied-cost-datedatea"><a name="field-applied-cost-date">Date</a></a></h4>
 <p>Mendefinisikan tanggal <em>Applied Cost</em></p>
-<a class="header" href="#a-namefield-applied-categ-dateapplied-cost-categorya" id="a-namefield-applied-categ-dateapplied-cost-categorya"><h4><a name="field-applied-categ-date">Applied Cost Category</a></h4></a>
+<h4><a class="header" href="#a-namefield-applied-categ-dateapplied-cost-categorya" id="a-namefield-applied-categ-dateapplied-cost-categorya"><a name="field-applied-categ-date">Applied Cost Category</a></a></h4>
 <p>Mendefinisikan kategori <em>Applied Cost</em></p>
-<a class="header" href="#a-namefield-applied-categ-productproducta" id="a-namefield-applied-categ-productproducta"><h4><a name="field-applied-categ-product">Product</a></h4></a>
+<h4><a class="header" href="#a-namefield-applied-categ-productproducta" id="a-namefield-applied-categ-productproducta"><a name="field-applied-categ-product">Product</a></a></h4>
 <p>Mendefinisikan produk <em>Applied Cost</em></p>
-<a class="header" href="#a-namefield-applied-categ-descriptiondescriptiona" id="a-namefield-applied-categ-descriptiondescriptiona"><h4><a name="field-applied-categ-description">Description</a></h4></a>
+<h4><a class="header" href="#a-namefield-applied-categ-descriptiondescriptiona" id="a-namefield-applied-categ-descriptiondescriptiona"><a name="field-applied-categ-description">Description</a></a></h4>
 <p>Mendefinisikan deskripsi <em>Applied Cost</em></p>
-<a class="header" href="#a-namefield-applied-categ-unit-priceunit-pricea" id="a-namefield-applied-categ-unit-priceunit-pricea"><h4><a name="field-applied-categ-unit-price">Unit Price</a></h4></a>
+<h4><a class="header" href="#a-namefield-applied-categ-unit-priceunit-pricea" id="a-namefield-applied-categ-unit-priceunit-pricea"><a name="field-applied-categ-unit-price">Unit Price</a></a></h4>
 <p>Mendefinisikan harga satuan <em>Applied Cost</em></p>
-<a class="header" href="#a-namefield-applied-categ-qtyqtya" id="a-namefield-applied-categ-qtyqtya"><h4><a name="field-applied-categ-qty">Qty.</a></h4></a>
+<h4><a class="header" href="#a-namefield-applied-categ-qtyqtya" id="a-namefield-applied-categ-qtyqtya"><a name="field-applied-categ-qty">Qty.</a></a></h4>
 <p>Mendefinisikan kuantitas <em>Applied Cost</em></p>
-<a class="header" href="#a-namefield-applied-categ-uomuoma" id="a-namefield-applied-categ-uomuoma"><h4><a name="field-applied-categ-uom">UoM</a></h4></a>
+<h4><a class="header" href="#a-namefield-applied-categ-uomuoma" id="a-namefield-applied-categ-uomuoma"><a name="field-applied-categ-uom">UoM</a></a></h4>
 <p>Mendefinisikan satuan <em>Applied Cost</em></p>
-<a class="header" href="#a-namefield-amount-totaluoma" id="a-namefield-amount-totaluoma"><h4><a name="field-amount-total">UoM</a></h4></a>
+<h4><a class="header" href="#a-namefield-amount-totaluoma" id="a-namefield-amount-totaluoma"><a name="field-amount-total">UoM</a></a></h4>
 <p>Menginformasikan total <em>Applied Cost</em></p>
-<a class="header" href="#a-namefield-debit-accdebit-accounta" id="a-namefield-debit-accdebit-accounta"><h4><a name="field-debit-acc">Debit Account</a></h4></a>
+<h4><a class="header" href="#a-namefield-debit-accdebit-accounta" id="a-namefield-debit-accdebit-accounta"><a name="field-debit-acc">Debit Account</a></a></h4>
 <p>Mendefinisikan akun debet</p>
-<a class="header" href="#a-namefield-credit-accdebit-accounta" id="a-namefield-credit-accdebit-accounta"><h4><a name="field-credit-acc">Debit Account</a></h4></a>
+<h4><a class="header" href="#a-namefield-credit-accdebit-accounta" id="a-namefield-credit-accdebit-accounta"><a name="field-credit-acc">Debit Account</a></a></h4>
 <p>Mendefinisikan akun kredit</p>
-<a class="header" href="#a-namefield-jurnaljurnala" id="a-namefield-jurnaljurnala"><h4><a name="field-jurnal">Jurnal</a></h4></a>
+<h4><a class="header" href="#a-namefield-jurnaljurnala" id="a-namefield-jurnaljurnala"><a name="field-jurnal">Jurnal</a></a></h4>
 <p>Mendefinisikan jurnal yang digunakan</p>
-<a class="header" href="#a-namefield-jurnal-entryjoernal-entrya" id="a-namefield-jurnal-entryjoernal-entrya"><h4><a name="field-jurnal-entry">Joernal Entry</a></h4></a>
-<p>Mendefinisikan entri jurnal</p>
-<a class="header" href="#membuat-manufacturing-order" id="membuat-manufacturing-order"><h1>Membuat Manufacturing Order</h1></a>
-<a class="header" href="#a-input" id="a-input"><h2>A. INPUT</h2></a>
+<h4><a class="header" href="#a-namefield-jurnal-entryjoernal-entrya" id="a-namefield-jurnal-entryjoernal-entrya"><a name="field-jurnal-entry">Joernal Entry</a></a></h4>
+<p>Mendefinisikan entri jurnal </p>
+<h1><a class="header" href="#membuat-manufacturing-order" id="membuat-manufacturing-order">Membuat Manufacturing Order</a></h1>
+<h2><a class="header" href="#a-input" id="a-input">A. INPUT</a></h2>
 <p><em>(tidak ada instruksi khusus)</em></p>
-<a class="header" href="#b-langkah-kerja" id="b-langkah-kerja"><h2>B. LANGKAH KERJA</h2></a>
+<h2><a class="header" href="#b-langkah-kerja" id="b-langkah-kerja">B. LANGKAH KERJA</a></h2>
 <ol>
 <li>Buka menu <strong>Manfacturing -&gt; Manufacturing -&gt; Manufacturing Order</strong></li>
 <li>Klik tombol <strong>Create</strong> pada bagian atas-kiri form.</li>
 </ol>
-<p><img src="../../img/mo/tombol-create.png" alt="" /></p>
+<p><img src="transaksi/mo/../../img/mo/tombol-create.png" alt="" /></p>
 <ol start="3">
 <li>Pilih <strong><a href="transaksi/mo/./penjelasan.html#field-type">Type</a></strong>. Harus diisi.</li>
 <li>Pilih <strong><a href="transaksi/mo/./penjelasan.html#field-product">Product</a></strong>. Harus diisi.</li>
@@ -350,25 +359,25 @@ Isian ini dapat diisi otomatis oleh Odoo berdasarkan <a href="transaksi/mo/./pen
 <li>Pilih <strong><a href="transaksi/mo/./penjelasan.html#field-finished-procurement">Finished Good Procurement Group</a></strong>. Tidak harus diisi.</li>
 <li>Klik tombol <strong>Save</strong> pada bagian atas-kiri form.</li>
 </ol>
-<p><img src="../../img/mo/tombol-simpan.png" alt="" /></p>
-<a class="header" href="#c-output" id="c-output"><h2>C. OUTPUT</h2></a>
+<p><img src="transaksi/mo/../../img/mo/tombol-simpan.png" alt="" /></p>
+<h2><a class="header" href="#c-output" id="c-output">C. OUTPUT</a></h2>
 <ul>
 <li>Data manufacturing order akaan terbuat dengan status <strong>New</strong></li>
 </ul>
-<p><img src="../../img/mo/status-new.png" alt="" /></p>
-<a class="header" href="#memodifikasi-manufacturing-order" id="memodifikasi-manufacturing-order"><h1>Memodifikasi Manufacturing Order</h1></a>
-<a class="header" href="#a-input-1" id="a-input-1"><h2>A. INPUT</h2></a>
+<p><img src="transaksi/mo/../../img/mo/status-new.png" alt="" /></p>
+<h1><a class="header" href="#memodifikasi-manufacturing-order" id="memodifikasi-manufacturing-order">Memodifikasi Manufacturing Order</a></h1>
+<h2><a class="header" href="#a-input-1" id="a-input-1">A. INPUT</a></h2>
 <ul>
 <li>Data manufacturing order yang akan dimodifikasi harus memiliki status <strong>New</strong></li>
 </ul>
-<p><img src="../../img/mo/status-new.png" alt="" /></p>
-<a class="header" href="#b-langkah-kerja-1" id="b-langkah-kerja-1"><h2>B. LANGKAH KERJA</h2></a>
+<p><img src="transaksi/mo/../../img/mo/status-new.png" alt="" /></p>
+<h2><a class="header" href="#b-langkah-kerja-1" id="b-langkah-kerja-1">B. LANGKAH KERJA</a></h2>
 <ol>
 <li>Buka menu <strong>Manfacturing -&gt; Manufacturing -&gt; Manufacturing Order</strong>. Abaikan jika sudah berada pada menu yang dimaksud.</li>
 <li>Buka data manufacturing order yang akan dimodifikasi. Abaikan jika data sudah dibuka.</li>
 <li>Klik tombol <strong>Edit</strong> pada bagian atas-kiri form.</li>
 </ol>
-<p><img src="../../img/mo/tombol-edit.png" alt="" /></p>
+<p><img src="transaksi/mo/../../img/mo/tombol-edit.png" alt="" /></p>
 <ol start="4">
 <li>Pilih dan sesuaikan <strong><a href="transaksi/mo/./penjelasan.html#field-type">Type</a></strong> jika dibutuhkan. Harus diisi.</li>
 <li>Pilih dan sesuaikan <strong><a href="transaksi/mo/./penjelasan.html#field-product">Product</a></strong> jika dibutuhkan. Harus diisi.</li>
@@ -387,200 +396,200 @@ Isian ini dapat diisi otomatis oleh Odoo berdasarkan <a href="transaksi/mo/./pen
 <li>Pilih dan sesuaikan <strong><a href="transaksi/mo/./penjelasan.html#field-finished-procurement">Finished Good Procurement Group</a></strong> jika dibutuhkan. Tidak harus diisi.</li>
 <li>Klik tombol <strong>Save</strong> pada bagian atas-kiri form.</li>
 </ol>
-<p><img src="../../img/mo/tombol-simpan.png" alt="" /></p>
-<a class="header" href="#c-output-1" id="c-output-1"><h2>C. OUTPUT</h2></a>
+<p><img src="transaksi/mo/../../img/mo/tombol-simpan.png" alt="" /></p>
+<h2><a class="header" href="#c-output-1" id="c-output-1">C. OUTPUT</a></h2>
 <ul>
 <li>Data manufacturing order berubah sesuai dengan perubahan yang dilakukan.</li>
 </ul>
-<a class="header" href="#menghapus-manufacturing-order" id="menghapus-manufacturing-order"><h1>Menghapus Manufacturing Order</h1></a>
-<a class="header" href="#a-input-2" id="a-input-2"><h2>A. INPUT</h2></a>
+<h1><a class="header" href="#menghapus-manufacturing-order" id="menghapus-manufacturing-order">Menghapus Manufacturing Order</a></h1>
+<h2><a class="header" href="#a-input-2" id="a-input-2">A. INPUT</a></h2>
 <ul>
 <li>Data manufacturing order yang akan dihapus harus memiliki status <strong>New</strong></li>
 </ul>
-<p><img src="../../img/mo/status-new.png" alt="" /></p>
-<a class="header" href="#b-langkah-kerja-2" id="b-langkah-kerja-2"><h2>B. LANGKAH KERJA</h2></a>
+<p><img src="transaksi/mo/../../img/mo/status-new.png" alt="" /></p>
+<h2><a class="header" href="#b-langkah-kerja-2" id="b-langkah-kerja-2">B. LANGKAH KERJA</a></h2>
 <ol>
 <li>Buka menu <strong>Manfacturing -&gt; Manufacturing -&gt; Manufacturing Order</strong>. Abaikan jika sudah berada pada menu yang dimaksud.</li>
 <li>Buka data manufacturing order yang akan dihapus. Abaikan jika data sudah dibuka.</li>
 <li>Klik tombol <strong>More</strong> pada bagian atas-tengah form.</li>
 </ol>
-<p><img src="../../img/mo/tombol-more.png" alt="" /></p>
+<p><img src="transaksi/mo/../../img/mo/tombol-more.png" alt="" /></p>
 <ol start="4">
 <li>Klik tombol <strong>Delete</strong> pada drop-down yang muncul dari tombol <strong>More</strong>.</li>
 </ol>
-<p><img src="../../img/mo/tombol-hapus-form.png" alt="" /></p>
+<p><img src="transaksi/mo/../../img/mo/tombol-hapus-form.png" alt="" /></p>
 <ol start="5">
 <li>Klik tombol <strong>Ok</strong> pada dialog konfirmasi penghapusan.</li>
 </ol>
-<p><img src="../../img/mo/tombol-ok-hapus.png" alt="" /></p>
-<a class="header" href="#c-output-2" id="c-output-2"><h2>C. OUTPUT</h2></a>
+<p><img src="transaksi/mo/../../img/mo/tombol-ok-hapus.png" alt="" /></p>
+<h2><a class="header" href="#c-output-2" id="c-output-2">C. OUTPUT</a></h2>
 <ul>
 <li>Data manufacturing order akan terhapus.</li>
 </ul>
-<a class="header" href="#konfirmasi-manufacturing-order" id="konfirmasi-manufacturing-order"><h1>Konfirmasi Manufacturing Order</h1></a>
-<a class="header" href="#a-input-3" id="a-input-3"><h2>A. INPUT</h2></a>
+<h1><a class="header" href="#konfirmasi-manufacturing-order" id="konfirmasi-manufacturing-order">Konfirmasi Manufacturing Order</a></h1>
+<h2><a class="header" href="#a-input-3" id="a-input-3">A. INPUT</a></h2>
 <ul>
 <li>Data manufacturing order yang akan dikonfirmasi harus memiliki status <strong>New</strong></li>
 </ul>
-<p><img src="../../img/mo/status-new.png" alt="" /></p>
-<a class="header" href="#b-langkah-kerja-3" id="b-langkah-kerja-3"><h2>B. LANGKAH KERJA</h2></a>
+<p><img src="transaksi/mo/../../img/mo/status-new.png" alt="" /></p>
+<h2><a class="header" href="#b-langkah-kerja-3" id="b-langkah-kerja-3">B. LANGKAH KERJA</a></h2>
 <ol>
 <li>Buka menu <strong>Manfacturing -&gt; Manufacturing -&gt; Manufacturing Order</strong>. Abaikan jika sudah berada pada menu yang dimaksud.</li>
 <li>Buka data manufacturing order yang akan dikonfirmasi. Abaikan jika data sudah terbuka.</li>
 <li>Klik tombol <strong>Confirm Production</strong> pada bagian atas-kiri form.</li>
 </ol>
-<p><img src="../../img/mo/tombol-confirm.png" alt="" /></p>
-<a class="header" href="#c-output-3" id="c-output-3"><h2>C. OUTPUT</h2></a>
+<p><img src="transaksi/mo/../../img/mo/tombol-confirm.png" alt="" /></p>
+<h2><a class="header" href="#c-output-3" id="c-output-3">C. OUTPUT</a></h2>
 <ul>
 <li>Status manufacturing order akan berubah menjadi <strong>Awaiting Raw Material</strong>.</li>
 </ul>
-<p><img src="../../img/mo/status-awaiting.png" alt="" /></p>
-<a class="header" href="#membatalkan-manufacturing-order" id="membatalkan-manufacturing-order"><h1>Membatalkan Manufacturing Order</h1></a>
-<a class="header" href="#menambahkan-raw-material" id="menambahkan-raw-material"><h1>Menambahkan Raw Material</h1></a>
-<a class="header" href="#a-input-4" id="a-input-4"><h2>A. INPUT</h2></a>
+<p><img src="transaksi/mo/../../img/mo/status-awaiting.png" alt="" /></p>
+<h1><a class="header" href="#membatalkan-manufacturing-order" id="membatalkan-manufacturing-order">Membatalkan Manufacturing Order</a></h1>
+<h1><a class="header" href="#menambahkan-raw-material" id="menambahkan-raw-material">Menambahkan Raw Material</a></h1>
+<h2><a class="header" href="#a-input-4" id="a-input-4">A. INPUT</a></h2>
 <ul>
 <li>Data manufacturing order yang akan dikonfirmasi harus memiliki status <strong>New</strong> atau <strong>Awaiting Raw Material</strong> atau <strong>Production Started</strong>.</li>
 </ul>
-<p><img src="../../img/mo/status-new.png" alt="" /></p>
-<a class="header" href="#b-langkah-kerja-4" id="b-langkah-kerja-4"><h2>B. LANGKAH KERJA</h2></a>
+<p><img src="transaksi/mo/../../img/mo/status-new.png" alt="" /></p>
+<h2><a class="header" href="#b-langkah-kerja-4" id="b-langkah-kerja-4">B. LANGKAH KERJA</a></h2>
 <ol>
 <li>Buka menu <strong>Manfacturing -&gt; Manufacturing -&gt; Manufacturing Order</strong>. Abaikan jika sudah berada pada menu yang dimaksud.</li>
 <li>Buka data manufacturing order yang akan ditambahkan raw material. Abaikan jika data sudah terbuka.</li>
 <li>Buka tab <strong>Consumed Product</strong>.</li>
 <li><a name="l4">Klik</a> tombol <strong>Add extra raw material</strong> pada bagian bawah tabel <strong>Products To Consume</strong></li>
 </ol>
-<p><img src="../../img/mo/tombol-add-rm.png" alt="" /></p>
+<p><img src="transaksi/mo/../../img/mo/tombol-add-rm.png" alt="" /></p>
 <ol start="5">
 <li>Pop-up <strong>Addition View</strong> akan muncul.</li>
 </ol>
-<p><img src="../../img/mo/pop-up-addition-view.png" alt="" /></p>
+<p><img src="transaksi/mo/../../img/mo/pop-up-addition-view.png" alt="" /></p>
 <ol start="6">
 <li>Pilih <strong>Product</strong> pada pop-up <strong>Addition View</strong>. Harus diisi.</li>
 <li>Isi <strong>Quantity</strong> pada pop-up <strong>Addition View</strong>. Harus diisi.</li>
 <li>Klik tombol <strong>Add</strong> pada bagian bawah-kiri pop-up <strong>Addition View</strong></li>
 </ol>
-<p><img src="../../img/mo/tombol-add-pop-up-addition-view.png" alt="" /></p>
+<p><img src="transaksi/mo/../../img/mo/tombol-add-pop-up-addition-view.png" alt="" /></p>
 <ol start="9">
-<li>Ulangi <a href="#l4">langkah ke-4</a> untuk setiap bahan baku yang akan ditambahkan.</li>
+<li>Ulangi <a href="transaksi/mo/tambah-rm.html#l4">langkah ke-4</a> untuk setiap bahan baku yang akan ditambahkan.</li>
 </ol>
-<a class="header" href="#c-output-4" id="c-output-4"><h2>C. OUTPUT</h2></a>
+<h2><a class="header" href="#c-output-4" id="c-output-4">C. OUTPUT</a></h2>
 <p><em>(Tidak ada instruksi khusus)</em></p>
-<a class="header" href="#cek-ketersediaan-raw-material" id="cek-ketersediaan-raw-material"><h1>Cek Ketersediaan Raw Material</h1></a>
-<a class="header" href="#a-input-5" id="a-input-5"><h2>A. INPUT</h2></a>
+<h1><a class="header" href="#cek-ketersediaan-raw-material" id="cek-ketersediaan-raw-material">Cek Ketersediaan Raw Material</a></h1>
+<h2><a class="header" href="#a-input-5" id="a-input-5">A. INPUT</a></h2>
 <ul>
 <li>Data manufacturing order yang akan dikonfirmasi harus memiliki status <strong>Awaiting Raw Material</strong>.</li>
 </ul>
-<p><img src="../../img/mo/status-awaiting.png" alt="" /></p>
-<a class="header" href="#b-langkah-kerja-5" id="b-langkah-kerja-5"><h2>B. LANGKAH KERJA</h2></a>
+<p><img src="transaksi/mo/../../img/mo/status-awaiting.png" alt="" /></p>
+<h2><a class="header" href="#b-langkah-kerja-5" id="b-langkah-kerja-5">B. LANGKAH KERJA</a></h2>
 <ol>
 <li>Buka menu <strong>Manfacturing -&gt; Manufacturing -&gt; Manufacturing Order</strong>. Abaikan jika sudah berada pada menu yang dimaksud.</li>
 <li>Buka data manufacturing order yang akan dikonfirmasi. Abaikan jika data sudah terbuka.</li>
 <li>Klik tombol <strong>Check Availability</strong> pada bagian atas-kiri form.</li>
 </ol>
-<p><img src="../../img/mo/tombol-check.png" alt="" /></p>
-<a class="header" href="#c-output-5" id="c-output-5"><h2>C. OUTPUT</h2></a>
+<p><img src="transaksi/mo/../../img/mo/tombol-check.png" alt="" /></p>
+<h2><a class="header" href="#c-output-5" id="c-output-5">C. OUTPUT</a></h2>
 <ul>
 <li>Apabila semua raw material sudah tersedia maka status manufacturing order akan berubah menjadi <strong>Ready To Produce</strong>.</li>
 </ul>
-<p><img src="../../img/mo/status-ready.png" alt="" /></p>
+<p><img src="transaksi/mo/../../img/mo/status-ready.png" alt="" /></p>
 <ul>
 <li>Apabila semua raw material belum tersedia tersedia semua maka status manufacturing order akan tetap <strong>Awaiting Raw Material</strong>.</li>
 </ul>
-<p><img src="../../img/mo/status-awaiting.png" alt="" /></p>
-<a class="header" href="#memulai-manufacturing-order" id="memulai-manufacturing-order"><h1>Memulai Manufacturing Order</h1></a>
-<a class="header" href="#a-input-6" id="a-input-6"><h2>A. INPUT</h2></a>
+<p><img src="transaksi/mo/../../img/mo/status-awaiting.png" alt="" /></p>
+<h1><a class="header" href="#memulai-manufacturing-order" id="memulai-manufacturing-order">Memulai Manufacturing Order</a></h1>
+<h2><a class="header" href="#a-input-6" id="a-input-6">A. INPUT</a></h2>
 <ul>
 <li>Data manufacturing order yang akan dimulai harus memiliki status <strong>Ready To Produce</strong>.</li>
 </ul>
-<p><img src="../../img/mo/status-ready.png" alt="" /></p>
-<a class="header" href="#b-langkah-kerja-6" id="b-langkah-kerja-6"><h2>B. LANGKAH KERJA</h2></a>
+<p><img src="transaksi/mo/../../img/mo/status-ready.png" alt="" /></p>
+<h2><a class="header" href="#b-langkah-kerja-6" id="b-langkah-kerja-6">B. LANGKAH KERJA</a></h2>
 <ol>
 <li>Buka menu <strong>Manfacturing -&gt; Manufacturing -&gt; Manufacturing Order</strong>. Abaikan jika sudah berada pada menu yang dimaksud.</li>
 <li>Buka data manufacturing order yang akan dimulai. Abaikan jika data sudah terbuka.</li>
 <li>Klik tombol <strong>Mark As Started</strong> pada bagian atas-kiri form.</li>
 </ol>
-<p><img src="../../img/mo/tombol-mark-start.png" alt="" /></p>
-<a class="header" href="#c-output-6" id="c-output-6"><h2>C. OUTPUT</h2></a>
+<p><img src="transaksi/mo/../../img/mo/tombol-mark-start.png" alt="" /></p>
+<h2><a class="header" href="#c-output-6" id="c-output-6">C. OUTPUT</a></h2>
 <ul>
 <li>Status manufacturing order akan berubah menjadi <strong>Production Started</strong>.</li>
 </ul>
-<p><img src="../../img/mo/status-started.png" alt="" /></p>
-<a class="header" href="#konsumsi-raw-material" id="konsumsi-raw-material"><h1>Konsumsi Raw Material</h1></a>
-<a class="header" href="#a-input-7" id="a-input-7"><h2>A. INPUT</h2></a>
+<p><img src="transaksi/mo/../../img/mo/status-started.png" alt="" /></p>
+<h1><a class="header" href="#konsumsi-raw-material" id="konsumsi-raw-material">Konsumsi Raw Material</a></h1>
+<h2><a class="header" href="#a-input-7" id="a-input-7">A. INPUT</a></h2>
 <ul>
 <li>Data manufacturing order yang akan dikonsumsi harus memiliki status <strong>Production Started</strong>.</li>
 </ul>
-<p><img src="../../img/mo/status-started.png" alt="" /></p>
-<a class="header" href="#b-langkah-kerja-7" id="b-langkah-kerja-7"><h2>B. LANGKAH KERJA</h2></a>
+<p><img src="transaksi/mo/../../img/mo/status-started.png" alt="" /></p>
+<h2><a class="header" href="#b-langkah-kerja-7" id="b-langkah-kerja-7">B. LANGKAH KERJA</a></h2>
 <ol>
 <li>Buka menu <strong>Manfacturing -&gt; Manufacturing -&gt; Manufacturing Order</strong>. Abaikan jika sudah berada pada menu yang dimaksud.</li>
 <li>Buka data manufacturing order yang akan dikonfirmasi. Abaikan jika data sudah terbuka.</li>
 <li>Buka tab <strong>Consumed Product</strong>.</li>
 <li><a name="l4">Klik</a> icon <strong>Panah Ke Kanan</strong> pada data bahan baku yang akan dikonsumsi.</li>
 </ol>
-<p><img src="../../img/mo/tombol-consume-rm.png" alt="" /></p>
+<p><img src="transaksi/mo/../../img/mo/tombol-consume-rm.png" alt="" /></p>
 <ol start="5">
 <li>Pop-up <strong>Consume Move</strong> akan muncul</li>
 </ol>
-<p><img src="../../img/mo/pop-up-consume-rm.png" alt="" /></p>
+<p><img src="transaksi/mo/../../img/mo/pop-up-consume-rm.png" alt="" /></p>
 <ol start="6">
 <li>Isi <strong>Actual Movement Date</strong> pada pop-up <strong>Consume Move</strong>. Harus diisi.</li>
 <li>Isi <strong>Quantity</strong> pada pop-up <strong>Consume Move</strong>. Harus diisi.</li>
 <li>Klik tombol <strong>Ok</strong> pada bagian bawah-kiri pop-up <strong>Consume Move</strong></li>
 </ol>
-<p><img src="../../img/mo/tombol-ok-pop-up-consume-rm.png" alt="" /></p>
+<p><img src="transaksi/mo/../../img/mo/tombol-ok-pop-up-consume-rm.png" alt="" /></p>
 <ol start="9">
-<li>Ulangi <a href="#l4">langkah ke-4</a> untuk setiap bahan baku yang akan dikonsumsi.</li>
+<li>Ulangi <a href="transaksi/mo/konsumsi.html#l4">langkah ke-4</a> untuk setiap bahan baku yang akan dikonsumsi.</li>
 </ol>
-<a class="header" href="#c-output-7" id="c-output-7"><h2>C. OUTPUT</h2></a>
+<h2><a class="header" href="#c-output-7" id="c-output-7">C. OUTPUT</a></h2>
 <p><em>(Tidak ada instruksi khusus)</em></p>
-<a class="header" href="#produksi-finished-goods" id="produksi-finished-goods"><h1>Produksi Finished Goods</h1></a>
-<a class="header" href="#a-input-8" id="a-input-8"><h2>A. INPUT</h2></a>
+<h1><a class="header" href="#produksi-finished-goods" id="produksi-finished-goods">Produksi Finished Goods</a></h1>
+<h2><a class="header" href="#a-input-8" id="a-input-8">A. INPUT</a></h2>
 <ul>
 <li>Data manufacturing order yang akan diproduksi finished goodnya harus memiliki status <strong>Production Started</strong>.</li>
 </ul>
-<p><img src="../../img/mo/status-started.png" alt="" /></p>
-<a class="header" href="#b-langkah-kerja-8" id="b-langkah-kerja-8"><h2>B. LANGKAH KERJA</h2></a>
+<p><img src="transaksi/mo/../../img/mo/status-started.png" alt="" /></p>
+<h2><a class="header" href="#b-langkah-kerja-8" id="b-langkah-kerja-8">B. LANGKAH KERJA</a></h2>
 <ol>
 <li>Buka menu <strong>Manfacturing -&gt; Manufacturing -&gt; Manufacturing Order</strong>. Abaikan jika sudah berada pada menu yang dimaksud.</li>
 <li>Buka data manufacturing order yang akan dikonfirmasi. Abaikan jika data sudah terbuka.</li>
 <li>Buka tab <strong>Finished Product</strong>.</li>
 <li><a name="l4">Klik</a> icon <strong>Panah Ke Kanan</strong> pada data barang jadi yang akan diproduksi.</li>
 </ol>
-<p><img src="../../img/mo/tombol-produce.png" alt="" /></p>
+<p><img src="transaksi/mo/../../img/mo/tombol-produce.png" alt="" /></p>
 <ol start="5">
 <li>Pop-up <strong>Produce Finished Good</strong> akan muncul.</li>
 </ol>
-<p><img src="../../img/mo/pop-up-produce-finished-good.png" alt="" /></p>
+<p><img src="transaksi/mo/../../img/mo/pop-up-produce-finished-good.png" alt="" /></p>
 <ol start="6">
 <li>Isi <strong>Actual Movement Date</strong> pada pop-up <strong>Produce Finished Good</strong>. Harus diisi.</li>
 <li>Isi <strong>Quantity</strong> pada pop-up <strong>Produce Finished Good</strong>. Harus diisi.</li>
 <li>Klik tombol <strong>Ok</strong> pada bagian bawah-kiri pop-up <strong>Produce Finished Good</strong>.</li>
 </ol>
-<p><img src="../../img/mo/tombol-ok-pop-up-produce-finished-good.png" alt="" /></p>
+<p><img src="transaksi/mo/../../img/mo/tombol-ok-pop-up-produce-finished-good.png" alt="" /></p>
 <ol start="9">
-<li>Ulangi <a href="#l4">langkah ke-4</a> untuk setiap hasil produksi yang akan diproduksi.</li>
+<li>Ulangi <a href="transaksi/mo/produksi.html#l4">langkah ke-4</a> untuk setiap hasil produksi yang akan diproduksi.</li>
 </ol>
-<a class="header" href="#c-output-8" id="c-output-8"><h2>C. OUTPUT</h2></a>
+<h2><a class="header" href="#c-output-8" id="c-output-8">C. OUTPUT</a></h2>
 <p><em>(Tidak ada instruksi khusus)</em></p>
-<a class="header" href="#menyelesaikan-manufacturing-order" id="menyelesaikan-manufacturing-order"><h1>Menyelesaikan Manufacturing Order</h1></a>
-<a class="header" href="#a-input-9" id="a-input-9"><h2>A. INPUT</h2></a>
+<h1><a class="header" href="#menyelesaikan-manufacturing-order" id="menyelesaikan-manufacturing-order">Menyelesaikan Manufacturing Order</a></h1>
+<h2><a class="header" href="#a-input-9" id="a-input-9">A. INPUT</a></h2>
 <ul>
 <li>Data manufacturing order yang akan diselesaikan harus memiliki status <strong>Production Started</strong></li>
 </ul>
-<p><img src="../../img/mo/status-started.png" alt="" /></p>
-<a class="header" href="#b-langkah-kerja-9" id="b-langkah-kerja-9"><h2>B. LANGKAH KERJA</h2></a>
+<p><img src="transaksi/mo/../../img/mo/status-started.png" alt="" /></p>
+<h2><a class="header" href="#b-langkah-kerja-9" id="b-langkah-kerja-9">B. LANGKAH KERJA</a></h2>
 <ol>
 <li>Buka menu <strong>Manfacturing -&gt; Manufacturing -&gt; Manufacturing Order</strong>. Abaikan jika sudah berada pada menu yang dimaksud.</li>
 <li>Buka data manufacturing order yang akan diselesaikan. Abaikan jika data sudah terbuka.</li>
 <li>Klik tombol <strong>Close Production</strong> pada bagian atas-kiri form.</li>
 </ol>
-<p><img src="../../img/mo/tombol-close.png" alt="" /></p>
-<a class="header" href="#c-output-9" id="c-output-9"><h2>C. OUTPUT</h2></a>
+<p><img src="transaksi/mo/../../img/mo/tombol-close.png" alt="" /></p>
+<h2><a class="header" href="#c-output-9" id="c-output-9">C. OUTPUT</a></h2>
 <ul>
 <li>Status manufacturing order akan berubah menjadi <strong>Done</strong>.</li>
 </ul>
-<p><img src="../../img/mo/status-done.png" alt="" /></p>
+<p><img src="transaksi/mo/../../img/mo/status-done.png" alt="" /></p>
 
                     </main>
 
@@ -605,6 +614,14 @@ Isian ini dapat diisi otomatis oleh Odoo berdasarkan <a href="transaksi/mo/./pen
 
         
 
+        
+
+        
+        
+        
+        <script type="text/javascript">
+            window.playpen_copyable = true;
+        </script>
         
 
         
